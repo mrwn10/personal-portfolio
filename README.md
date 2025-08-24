@@ -9,8 +9,7 @@ It is my first repository with a README file, created as I explore version contr
 
 ## 🛠️ Tech Stack
 - HTML  
-- CSS  
-- JavaScript  
+- CSS   
 - GitHub Pages (for hosting)  
 
 ---
