@@ -3,73 +3,280 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="../img/github.png" type="image/png" />
   <link rel="stylesheet" href="../css/services.css" />
-  <title>Services</title>
+  <title>Services | Marwin Dalin</title>
 </head>
 <body>
   <nav>
-    <div class="logo">MyPortfolio</div>
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-text">Marwin Dalin</span>
+      </div>
 
-    <!-- Mobile Menu Toggle -->
-    <input type="checkbox" id="menu-checkbox" />
-    <label for="menu-checkbox" class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-btn">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </label>
 
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../html/about_me.html">About Me</a></li>
-      <li><a href="../html/projects.html">Projects</a></li>
-      <li><a href="../html/skills.html">Skills</a></li>
-      <li><a href="../html/services.html" class="active">Services</a></li>
-      <li><a href="../cv/Dalin-CV.pdf" download class="download-btn" target="_blank">Download CV</a></li>
-    </ul>
+      <div class="nav-menu">
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="about_me.html">About Me</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="services.html" class="active">Services</a>
+        </div>
+        <a href="../cv/Dalin-CV.pdf" download class="download-btn" target="_blank">
+          <i class="fas fa-download"></i> Download CV
+        </a>
+      </div>
+      
+      <!-- Overlay for mobile menu -->
+      <div class="menu-overlay"></div>
+    </div>
   </nav>
 
   <main class="services-container">
-    <h1>My Core Expertise</h1>
+    <div class="container">
+      <!-- Header Section -->
+      <section class="services-header">
+        <h1>My Services & Core Expertise</h1>
+        <p class="intro">
+          Here's what I can offer and my approach to delivering quality solutions. 
+          As an aspiring IT professional, I focus on practical, user-friendly results 
+          while continuously expanding my capabilities.
+        </p>
+      </section>
 
-    <div class="service-card">
-      <h2>🖥️ Web Development</h2>
-      <p>
-        I’m currently most confident in web development, having already completed several projects.
-        I build clean, responsive websites from scratch and can maintain or improve existing ones.
-        I’m most comfortable working with Python and the Flask framework for the backend.
-      </p>
+      <!-- Services Cards Section -->
+      <section class="services-grid">
+        <!-- Web Development Card -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="card-content">
+            <h2>Web Development</h2>
+            <p class="service-description">
+              I'm currently most confident in web development, having already completed several projects.
+              I build clean, responsive websites from scratch and can maintain or improve existing ones.
+              I'm most comfortable working with Python and the Flask framework for the backend.
+            </p>
+            
+            <div class="service-highlights">
+              <h4>What I Deliver:</h4>
+              <ul>
+                <li>Responsive, mobile-friendly websites</li>
+                <li>Custom web applications with Flask</li>
+                <li>Website maintenance and updates</li>
+                <li>Clean, structured code</li>
+              </ul>
+            </div>
+            
+            <div class="focus-tags">
+              <span class="tag">Frontend</span>
+              <span class="tag">Backend</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Responsive Design</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- IT Support Card -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <div class="card-content">
+            <h2>IT Support</h2>
+            <p class="service-description">
+              I'm interested in IT support too — I can assist with setting up office computers,
+              installing operating systems and essential software, and providing basic troubleshooting.
+              While I'm still growing my hands-on experience, I'm always ready to learn and help.
+            </p>
+            
+            <div class="service-highlights">
+              <h4>Support Areas:</h4>
+              <ul>
+                <li>Computer setup and configuration</li>
+                <li>OS installation (Windows & Linux)</li>
+                <li>Software installation and troubleshooting</li>
+                <li>Basic system maintenance</li>
+              </ul>
+            </div>
+            
+            <div class="focus-tags">
+              <span class="tag">System Setup</span>
+              <span class="tag">Troubleshooting</span>
+              <span class="tag">Software Installation</span>
+              <span class="tag">Technical Support</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Approach Card -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="card-content">
+            <h2>My Approach</h2>
+            <p class="service-description">
+              My code may not look flashy, but it's responsive on all devices, including mobile.
+              I focus on speed, responsiveness, and user-friendliness. You can see on my GitHub 
+              that I keep my code clean and modular — showing my commitment to structure and maintainability.
+            </p>
+            
+            <div class="service-highlights">
+              <h4>Development Principles:</h4>
+              <ul>
+                <li>Mobile-first responsive design</li>
+                <li>Clean, maintainable code structure</li>
+                <li>Performance optimization</li>
+                <li>User-centered solutions</li>
+              </ul>
+            </div>
+            
+            <div class="focus-tags">
+              <span class="tag">Clean Code</span>
+              <span class="tag">Performance</span>
+              <span class="tag">Maintainability</span>
+              <span class="tag">User Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Growth Mindset Card -->
+        <div class="service-card">
+          <div class="card-icon">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <div class="card-content">
+            <h2>Growth Mindset</h2>
+            <p class="service-description">
+              Even if I don't know something yet, I'm confident I can learn it.
+              I believe you don't need to know everything to be good in IT — 
+              you need to know how to learn and solve problems effectively.
+            </p>
+            
+            <div class="service-highlights">
+              <h4>Learning Philosophy:</h4>
+              <ul>
+                <li>Quick adaptation to new technologies</li>
+                <li>Problem-solving oriented</li>
+                <li>Continuous skill improvement</li>
+                <li>Hands-on learning approach</li>
+              </ul>
+            </div>
+            
+            <div class="focus-tags">
+              <span class="tag">Adaptability</span>
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Continuous Learning</span>
+              <span class="tag">Quick Learner</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Section -->
+      <section class="cta-section">
+        <div class="cta-card">
+          <div class="cta-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="cta-content">
+            <h2>Ready to Work With Me?</h2>
+            <p class="cta-text">
+              Whether you need a website built, IT support, or just want to connect about 
+              potential opportunities, I'm excited to hear from you. Let's discuss how I can 
+              contribute to your projects or team.
+            </p>
+            
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>marwindalin10@gmail.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>0947 437 1682</span>
+              </div>
+            </div>
+            
+            <div class="cta-actions">
+              <a href="mailto:marwindalin10@gmail.com" class="cta-btn">
+                <i class="fas fa-envelope"></i> Email Me
+              </a>
+              <a href="https://github.com/mrwn10" target="_blank" class="cta-btn github-btn">
+                <i class="fab fa-github"></i> View GitHub
+              </a>
+            </div>
+            
+            <div class="inspiration-quote">
+              <i class="fas fa-quote-left quote-icon"></i>
+              <blockquote>"And without faith it is impossible to please Him, for he who comes to God must believe that He is and that He is a rewarder of those who seek Him."</blockquote>
+              <p class="quote-source">— Hebrews 11:6</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-
-    <div class="service-card">
-      <h2>🔧 IT Support</h2>
-      <p>
-        I’m interested in IT support too — I can assist with setting up office computers,
-        installing operating systems and essential software, and providing basic troubleshooting.
-        While I’m still growing my hands-on experience, I’m always ready to learn.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <h2>💡 My Approach</h2>
-      <p>
-        My code may not look flashy, but it’s responsive on all devices, including mobile.
-        I focus on speed, responsiveness, and user-friendliness.
-        You can see on my GitHub that I keep my code clean and modular — showing my commitment to structure and maintainability.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <h2>📚 Growth Mindset</h2>
-      <p>
-        Even if I don’t know something yet, I’m confident I can learn it.
-        I believe you don’t need to know everything to be good in IT — you need to know how to learn and solve problems.
-      </p>
-    </div>
-
-    <p class="cta">
-      <a href=""></a>👉 Ready to work with me? <strong>Let’s connect!</strong>
-    </p>
   </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Contact Information</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> marwindalin10@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 0947 437 1682</p>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Connect With Me</h4>
+          <div class="social-links">
+            <a href="https://github.com/mrwn10" target="_blank" class="github">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/marwin-dalin-29a924278/" target="_blank" class="linkedin">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" class="facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="quick-links">
+            <a href="../index.html">Home</a>
+            <a href="about_me.html">About Me</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="services.html">Services</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Marwin Dalin. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/services.js"></script>
 </body>
 </html>

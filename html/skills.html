@@ -3,106 +3,407 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="../img/github.png" type="image/png" />
   <link rel="stylesheet" href="../css/skills.css" />
-  <title>Skills</title>
+  <title>Skills | Marwin Dalin</title>
 </head>
 <body>
   <nav>
-    <div class="logo">MyPortfolio</div>
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-text">Marwin Dalin</span>
+      </div>
 
-    <!-- Mobile Menu Toggle -->
-    <input type="checkbox" id="menu-checkbox" />
-    <label for="menu-checkbox" class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-btn">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </label>
 
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../html/about_me.html">About Me</a></li>
-      <li><a href="../html/projects.html">Projects</a></li>
-      <li><a href="../html/skills.html" class="active">Skills</a></li>
-      <li><a href="../html/services.html">Services</a></li>
-      <li><a href="../cv/Dalin-CV.pdf" download class="download-btn" target="_blank">Download CV</a></li>
-    </ul>
+      <div class="nav-menu">
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="about_me.html">About Me</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html" class="active">Skills</a>
+          <a href="services.html">Services</a>
+        </div>
+        <a href="../cv/Dalin-CV.pdf" download class="download-btn" target="_blank">
+          <i class="fas fa-download"></i> Download CV
+        </a>
+      </div>
+      
+      <!-- Overlay for mobile menu -->
+      <div class="menu-overlay"></div>
+    </div>
   </nav>
 
   <main class="skills-container">
-    <h1>My Technical Skills</h1>
-    <p class="intro">
-      Here's a comprehensive overview of my technical capabilities and tools I'm proficient with.
-    </p>
+    <div class="container">
+      <!-- Header Section -->
+      <section class="skills-header">
+        <h1>My Technical Skills</h1>
+        <p class="intro">
+          Here's a comprehensive overview of my technical capabilities and tools I'm proficient with. 
+          As an aspiring professional, I'm continuously expanding my skill set through hands-on learning 
+          and practical application.
+        </p>
+      </section>
 
-    <div class="skill-card">
-      <h2>Front-End Development</h2>
-      <div class="skill">
-        <span>HTML — 90%</span>
-        <div class="progress"><div class="progress-bar" style="--target-width: 90%;"></div></div>
-      </div>
-      <div class="skill">
-        <span>CSS — 70%</span>
-        <div class="progress"><div class="progress-bar" style="--target-width: 70%;"></div></div>
-      </div>
-      <div class="skill">
-        <span>JavaScript — 45%</span>
-        <div class="progress"><div class="progress-bar" style="--target-width: 45%;"></div></div>
-      </div>
-    </div>
+      <!-- Technical Skills Section -->
+      <section class="technical-skills-section">
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-description">Core development skills and proficiency levels</p>
+        
+        <div class="skills-grid">
+          <!-- Front-End Development Card -->
+          <div class="skill-card">
+            <div class="card-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="card-content">
+              <h2>Front-End Development</h2>
+              <p class="card-description">Building responsive, user-friendly interfaces with modern web technologies.</p>
+              
+              <div class="skill">
+                <div class="skill-info">
+                  <span class="skill-name">HTML</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="--target-width: 90%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill">
+                <div class="skill-info">
+                  <span class="skill-name">CSS</span>
+                  <span class="skill-percent">70%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="--target-width: 70%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript</span>
+                  <span class="skill-percent">45%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="--target-width: 45%;"></div>
+                </div>
+              </div>
+              
+              <!-- Empty space to balance height -->
+              <div class="empty-space"></div>
+            </div>
+          </div>
 
-    <div class="skill-card">
-      <h2>Back-End Development</h2>
-      <div class="skill">
-        <span>Python (Flask) — 65%</span>
-        <div class="progress"><div class="progress-bar" style="--target-width: 65%;"></div></div>
-      </div>
-      <div class="skill">
-        <span>SQL — 45%</span>
-        <div class="progress"><div class="progress-bar" style="--target-width: 45%;"></div></div>
-      </div>
-    </div>
+          <!-- Back-End Development Card -->
+          <div class="skill-card">
+            <div class="card-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <div class="card-content">
+              <h2>Back-End Development</h2>
+              <p class="card-description">Working with server-side technologies and database management.</p>
+              
+              <div class="skill">
+                <div class="skill-info">
+                  <span class="skill-name">Python (Flask)</span>
+                  <span class="skill-percent">65%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="--target-width: 65%;"></div>
+                </div>
+              </div>
 
-    <div class="skill-card">
-      <h2>Mobile Development</h2>
-      <div class="skill">
-        <span>Dart — 30%</span>
-        <div class="progress"><div class="progress-bar" style="--target-width: 30%;"></div></div>
-      </div>
-    </div>
+              <div class="skill">
+                <div class="skill-info">
+                  <span class="skill-name">PHP (Laravel)</span>
+                  <span class="skill-percent">25%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="--target-width: 25%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill">
+                <div class="skill-info">
+                  <span class="skill-name">SQL</span>
+                  <span class="skill-percent">45%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="--target-width: 45%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-list">
+                <h4>Currently Learning:</h4>
+                <ul>
+                  <li>Laravel Framework</li>
+                  <li>Database Optimization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-    <div class="skill-card">
-      <h2>Tools & Software</h2>
-      <div class="skill">
-        <span>GitHub — 30%</span>
-        <div class="progress"><div class="progress-bar" style="--target-width: 30%;"></div></div>
-      </div>
-    </div>
+          <!-- Mobile Development Card -->
+          <div class="skill-card">
+            <div class="card-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="card-content">
+              <h2>Mobile Development</h2>
+              <p class="card-description">Exploring cross-platform mobile application development.</p>
+              
+              <div class="skill">
+                <div class="skill-info">
+                  <span class="skill-name">Dart (Flutter)</span>
+                  <span class="skill-percent">30%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="--target-width: 30%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-list">
+                <h4>Currently Learning:</h4>
+                <ul>
+                  <li>Flutter Framework Basics</li>
+                  <li>Mobile UI Design Principles</li>
+                  <li>Cross-Platform Development</li>
+                </ul>
+              </div>
+              
+              <!-- Empty space to balance height -->
+              <div class="empty-space"></div>
+            </div>
+          </div>
 
-    <div class="skill-card">
-      <h2>System Administration & IT Support</h2>
-      <ul>
-        <li>Installing Operating Systems (Windows, Linux)</li>
-        <li>Setting up Virtual Machines (Oracle VirtualBox)</li>
-        <li>Configuring Ticketing Tools (osTicket)</li>
-        <li>Installing Microsoft Office</li>
-        <li>Setting up Bootable Flash Drives</li>
-      </ul>
-      <blockquote>
-         I am eager to strengthen my practical skills and expand my hands-on experience with various IT systems and tools.
-      </blockquote>
-    </div>
+          <!-- Tools & Software Card -->
+          <div class="skill-card">
+            <div class="card-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div class="card-content">
+              <h2>Tools & Software</h2>
+              <p class="card-description">Essential development tools and version control systems.</p>
+              
+              <div class="skill">
+                <div class="skill-info">
+                  <span class="skill-name">GitHub & Git</span>
+                  <span class="skill-percent">60%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="--target-width: 60%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-list">
+                <h4>Additional Tools:</h4>
+                <ul>
+                  <li>Visual Studio Code</li>
+                  <li>XAMPP & phpMyAdmin</li>
+                  <li>Git Version Control</li>
+                  <li>Command Line Interface</li>
+                  <li>Virtual Machine Tools</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div class="skill-card">
-      <h2>Hardware</h2>
-      <ul>
-        <li>Building PCs</li>
-        <li>Basic PC troubleshooting</li>
-      </ul>
-      <blockquote>
-         I have strong theoretical knowledge in hardware setup and troubleshooting.
-      </blockquote>
+      <!-- Practical Experience Section -->
+      <section class="practical-experience-section">
+        <h2 class="section-title">Practical Experience & IT Skills</h2>
+        <p class="section-description">Hands-on experience with various IT systems and technical competencies</p>
+
+        <!-- System Administration & IT Support Card -->
+        <div class="experience-card">
+          <div class="card-icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <div class="card-content">
+            <h2>System Administration & IT Support</h2>
+            <p class="card-description">Hands-on experience with various IT systems, virtualization, and support tools.</p>
+            
+            <div class="skill-list">
+              <h4>Practical Experience:</h4>
+              <div class="experience-grid">
+                <div class="experience-item">
+                  <i class="fas fa-laptop"></i>
+                  <div>
+                    <h5>Operating Systems</h5>
+                    <p>Installing and configuring Windows & Linux</p>
+                  </div>
+                </div>
+                <div class="experience-item">
+                  <i class="fas fa-cube"></i>
+                  <div>
+                    <h5>Virtualization</h5>
+                    <p>Setting up Virtual Machines (Oracle VirtualBox)</p>
+                  </div>
+                </div>
+                <div class="experience-item">
+                  <i class="fas fa-ticket-alt"></i>
+                  <div>
+                    <h5>Ticketing Systems</h5>
+                    <p>Configuring osTicket with XAMPP</p>
+                  </div>
+                </div>
+                <div class="experience-item">
+                  <i class="fas fa-window-restore"></i>
+                  <div>
+                    <h5>Software Installation</h5>
+                    <p>Microsoft Office Suite & Essential Tools</p>
+                  </div>
+                </div>
+                <div class="experience-item">
+                  <i class="fas fa-usb"></i>
+                  <div>
+                    <h5>Bootable Media</h5>
+                    <p>Creating bootable USB drives for OS installation</p>
+                  </div>
+                </div>
+                <div class="experience-item">
+                  <i class="fas fa-search"></i>
+                  <div>
+                    <h5>Software Troubleshooting</h5>
+                    <p>Basic software issue diagnosis and resolution</p>
+                  </div>
+                </div>
+                <div class="experience-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <div>
+                    <h5>System Maintenance</h5>
+                    <p>Basic system updates and preventive maintenance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="inspiration-quote">
+              <i class="fas fa-quote-left quote-icon"></i>
+              <blockquote>I am eager to strengthen my practical skills and expand my hands-on experience with various IT systems and tools.</blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hardware Card -->
+        <div class="experience-card">
+          <div class="card-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <div class="card-content">
+            <h2>Hardware & Technical Skills</h2>
+            <p class="card-description">Knowledge and experience with computer hardware assembly and troubleshooting.</p>
+            
+            <div class="skill-list">
+              <h4>Hardware Competencies:</h4>
+              <div class="hardware-grid">
+                <div class="hardware-item">
+                  <div class="hardware-icon">
+                    <i class="fas fa-tools"></i>
+                  </div>
+                  <div class="hardware-content">
+                    <h5>PC Assembly</h5>
+                    <p>Building custom desktop computers from components</p>
+                  </div>
+                </div>
+                <div class="hardware-item">
+                  <div class="hardware-icon">
+                    <i class="fas fa-search"></i>
+                  </div>
+                  <div class="hardware-content">
+                    <h5>Hardware Troubleshooting</h5>
+                    <p>Basic diagnosis and resolution of hardware issues</p>
+                  </div>
+                </div>
+                <div class="hardware-item">
+                  <div class="hardware-icon">
+                    <i class="fas fa-network-wired"></i>
+                  </div>
+                  <div class="hardware-content">
+                    <h5>Component Knowledge</h5>
+                    <p>Understanding CPU, GPU, RAM, storage, and motherboard compatibility</p>
+                  </div>
+                </div>
+                <div class="hardware-item">
+                  <div class="hardware-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <div class="hardware-content">
+                    <h5>System Maintenance</h5>
+                    <p>Cleaning, thermal paste application, and preventive maintenance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="inspiration-quote">
+              <i class="fas fa-quote-left quote-icon"></i>
+              <blockquote>I have strong theoretical knowledge in hardware setup and troubleshooting, complemented by hands-on assembly experience.</blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Contact Information</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> marwindalin10@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 0947 437 1682</p>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Connect With Me</h4>
+          <div class="social-links">
+            <a href="https://github.com/mrwn10" target="_blank" class="github">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/marwin-dalin-29a924278/" target="_blank" class="linkedin">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" class="facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="quick-links">
+            <a href="../index.html">Home</a>
+            <a href="about_me.html">About Me</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="services.html">Services</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Marwin Dalin. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/skills.js"></script>
 </body>
 </html>

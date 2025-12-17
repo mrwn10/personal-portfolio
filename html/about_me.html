@@ -3,77 +3,302 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="../img/github.png" type="image/png" />
   <link rel="stylesheet" href="../css/about_me.css" />
-  <title>About Me</title>
+  <title>About Me | Marwin Dalin</title>
 </head>
 <body>
   <nav>
-    <div class="logo">MyPortfolio</div>
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-text">Marwin Dalin</span>
+      </div>
 
-    <!-- Mobile Menu Toggle -->
-    <input type="checkbox" id="menu-checkbox" />
-    <label for="menu-checkbox" class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-btn">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </label>
 
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../html/about_me.html" class="active">About Me</a></li>
-      <li><a href="../html/projects.html">Projects</a></li>
-      <li><a href="../html/skills.html">Skills</a></li>
-      <li><a href="../html/services.html">Services</a></li>
-      <li><a href="../cv/Dalin-CV.pdf" download class="download-btn" target="_blank">Download CV</a></li>
-    </ul>
+      <div class="nav-menu">
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="about_me.html" class="active">About Me</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="services.html">Services</a>
+        </div>
+        <a href="../cv/Dalin-CV.pdf" download class="download-btn" target="_blank">
+          <i class="fas fa-download"></i> Download CV
+        </a>
+      </div>
+      
+      <!-- Overlay for mobile menu -->
+      <div class="menu-overlay"></div>
+    </div>
   </nav>
 
   <main class="about-container">
-    <div class="about-image">
-      <img src="../img/formal.jpeg" alt="Marwin Dalin" />
-    </div>
-    <h1>Marwin Dalin — Web Developer / IT Support</h1>
+    <!-- Profile Summary Section -->
+    <section class="profile-summary">
+      <div class="container">
+        <div class="profile-header">
+          <div class="profile-image-small">
+            <img src="../img/formal.jpeg" alt="Marwin Dalin" />
+          </div>
+          <div class="profile-details">
+            <h1>Marwin Dalin</h1>
+            <h2>Aspiring IT Support / Junior Web Developer</h2>
+            <div class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Laguna, Philippines</span>
+            </div>
+            <div class="contact-info">
+              <p><i class="fas fa-envelope"></i> marwindalin10@gmail.com</p>
+              <p><i class="fas fa-phone"></i> 0947 437 1682</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="profile-description">
+          <p>Aspiring IT professional interested in web development and technical support, seeking opportunities to gain real-world exposure while building practical frontend and backend skills.</p>
+          
+          <div class="technical-exposure">
+            <h3>Technical Exposure</h3>
+            <p>Through hands-on learning and personal projects, I have gained experience with:</p>
+            <div class="exposure-items">
+              <div class="exposure-item">
+                <i class="fas fa-server"></i>
+                <span>Virtual Machine Setup (Linux & Windows)</span>
+              </div>
+              <div class="exposure-item">
+                <i class="fas fa-code"></i>
+                <span>Website Development & Deployment</span>
+              </div>
+              <div class="exposure-item">
+                <i class="fas fa-ticket-alt"></i>
+                <span>osTicket Setup with XAMPP</span>
+              </div>
+              <div class="exposure-item">
+                <i class="fas fa-tools"></i>
+                <span>IT Support & Troubleshooting</span>
+              </div>
+            </div>
+            <p class="junior-note">As an intern and aspiring professional, I'm building my foundation in these areas and eager to grow through practical experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-      <h2>Basic Information</h2>
-      <p>Hello! I'm Marwin Dalin, an aspiring web developer from Laguna, Philippines. I enjoy creating user-friendly, responsive websites and applications through personal and academic projects. I work with both front-end and back-end technologies and have experience using SQL for database management.</p>
-      <p>While my hands-on experience is mainly in web development projects, I'm also eager to start an entry-level role in IT Support to grow my skills, help users, and gain real-world experience in the tech industry.</p>
-      <p>📍 <strong>Location:</strong> Laguna, Philippines<br>
-        📧 <strong>Email:</strong> marwindalin10@gmail.com<br>
-        🎯 <strong>Focus:</strong> Full-Stack Web Development | Learning SQL | Exploring IT Support</p>
-    </div>
+    <!-- Main Content Cards -->
+    <section class="content-cards">
+      <div class="container">
+        <!-- Personal Summary Card -->
+        <div class="content-card">
+          <div class="card-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="card-content">
+            <h2>Personal Summary</h2>
+            <p>Hello! I'm <strong>Marwin Dalin</strong>, an aspiring web developer from Laguna, Philippines. I enjoy creating user-friendly, responsive websites and applications through personal and academic projects. I work with both front-end and back-end technologies and have experience using SQL for database management.</p>
+            <p>While my hands-on experience is mainly in web development projects, I'm also eager to start an entry-level role in IT Support to grow my skills, help users, and gain real-world experience in the tech industry.</p>
+            
+            <div class="experience-highlights">
+              <h4>Recent Hands-on Experience:</h4>
+              <ul>
+                <li>Setting up and configuring virtual machines using both Linux and Windows environments</li>
+                <li>Full website development lifecycle - from initial coding to final deployment</li>
+                <li>Installing and configuring osTicket helpdesk system using XAMPP for ticketing solutions</li>
+                <li>Basic IT support tasks including troubleshooting and system maintenance</li>
+              </ul>
+              <p class="learning-note">This portfolio highlights my learning journey and the skills I can contribute. I am looking forward to opportunities to further apply and improve them through real-world exposure and teamwork.</p>
+            </div>
+            
+            <div class="focus-tags">
+              <span class="tag">Web Development</span>
+              <span class="tag">IT Support</span>
+              <span class="tag">Virtual Machines</span>
+              <span class="tag">Database Management</span>
+              <span class="tag">Helpdesk Systems</span>
+            </div>
+          </div>
+        </div>
 
-    <div class="card">
-      <h2>Education</h2>
-      <p><strong>Bachelor of Science in Information Technology</strong><br>
-        Laguna State Polytechnic University - Sta. Cruz Campus • 2021–Present</p>
-      <p>Specializing in Web Development and looking for opportunities in IT Support.</p>
-    </div>
+        <!-- Education Card -->
+        <div class="content-card">
+          <div class="card-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="card-content">
+            <h2>Education</h2>
+            <div class="education-item">
+              <h3>Bachelor of Science in Information Technology</h3>
+              <div class="education-details">
+                <span class="institution">
+                  <i class="fas fa-university"></i> Laguna State Polytechnic University - Sta. Cruz Campus
+                </span>
+                <span class="duration">
+                  <i class="fas fa-calendar-alt"></i> 2021–Present
+                </span>
+              </div>
+              <p>Currently completing my degree while gaining practical experience through internships and personal projects. Specializing in Web Development with exposure to IT support systems and network fundamentals.</p>
+              
+              <div class="academic-focus">
+                <h4>Academic Focus Areas:</h4>
+                <div class="focus-grid">
+                  <div class="focus-subject">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Web Programming</span>
+                  </div>
+                  <div class="focus-subject">
+                    <i class="fas fa-cogs"></i>
+                    <span>System Administration</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="card">
-      <h2>Career Goals</h2>
-      <p>My mission is to build a strong foundation in IT Support and technical problem-solving while continuing to develop my skills in full-stack web development. I aim to grow into a well-rounded IT professional who can assist users, maintain systems, and build scalable web applications when needed.</p>
-      <p><strong>Key Interests:</strong></p>
-      <ul>
-        <li>Hands-on IT Support (hardware/software troubleshooting, helpdesk, user support)</li>
-        <li>Building with Python frameworks (like Flask)</li>
-        <li>Improving through web projects and open-source contributions</li>
-      </ul>
-      <blockquote>"And without faith it is impossible to please Him, for he who comes to God must believe that He is and that He is a rewarder of those who seek Him." — Hebrews 11:6</blockquote>
-    </div>
+        <!-- Career Goals Card -->
+        <div class="content-card">
+          <div class="card-icon">
+            <i class="fas fa-flag"></i>
+          </div>
+          <div class="card-content">
+            <h2>Career Goals & Approach</h2>
+            <p>My mission is to build a strong foundation in IT Support and technical problem-solving while continuing to develop my skills in full-stack web development. I aim to grow into a well-rounded IT professional who can assist users, maintain systems, and build scalable web applications when needed.</p>
+            
+            <div class="approach-grid">
+              <div class="approach-item">
+                <div class="approach-icon">
+                  <i class="fas fa-compass"></i>
+                </div>
+                <h4>Exploring New Technologies</h4>
+                <p>Continuously learning about new tools and frameworks through hands-on practice and experimentation.</p>
+              </div>
+              <div class="approach-item">
+                <div class="approach-icon">
+                  <i class="fas fa-book-open"></i>
+                </div>
+                <h4>Self-Directed Learning</h4>
+                <p>Taking initiative to learn through online courses, documentation, and building personal projects.</p>
+              </div>
+              <div class="approach-item">
+                <div class="approach-icon">
+                  <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h4>Practical Problem Solving</h4>
+                <p>Applying logical thinking to troubleshoot issues and find effective solutions in real-world scenarios.</p>
+              </div>
+            </div>
 
-    <div class="card">
-      <h2>Hobbies & Interests</h2>
-      <ul>
-        <li>Basketball</li>
-        <li>Gaming</li>
-        <li>Cycling</li>
-        <li>Music</li>
-        <li>Anime & Manhwa</li>
-        <li>Favorite Music: Hip Hop & Pop</li>
-      </ul>
-    </div>
+            <div class="inspiration-quote">
+              <i class="fas fa-quote-left quote-icon"></i>
+              <blockquote>"And without faith it is impossible to please Him, for he who comes to God must believe that He is and that He is a rewarder of those who seek Him."</blockquote>
+              <p class="quote-source">— Hebrews 11:6</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hobbies Card -->
+        <div class="content-card">
+          <div class="card-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="card-content">
+            <h2>Hobbies & Interests</h2>
+            <p>Outside of technology and learning, I enjoy various activities that help me stay balanced and creative:</p>
+            
+            <div class="hobbies-grid">
+              <div class="hobby">
+                <i class="fas fa-basketball-ball"></i>
+                <h4>Basketball</h4>
+                <p>Team sports that teach collaboration and strategy</p>
+              </div>
+              <div class="hobby">
+                <i class="fas fa-gamepad"></i>
+                <h4>Gaming</h4>
+                <p>Strategic thinking and problem-solving in virtual environments</p>
+              </div>
+              <div class="hobby">
+                <i class="fas fa-bicycle"></i>
+                <h4>Cycling</h4>
+                <p>Exploring new places and maintaining physical fitness</p>
+              </div>
+              <div class="hobby">
+                <i class="fas fa-music"></i>
+                <h4>Music</h4>
+                <p>Hip Hop & Pop genres for inspiration and relaxation</p>
+              </div>
+              <div class="hobby">
+                <i class="fas fa-tv"></i>
+                <h4>Anime & Manhwa</h4>
+                <p>Appreciating storytelling and character development</p>
+              </div>
+              <div class="hobby">
+                <i class="fas fa-headphones"></i>
+                <h4>Audio</h4>
+                <p>Exploring different music styles and podcasts</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Contact Information</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> marwindalin10@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 0947 437 1682</p>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Connect With Me</h4>
+          <div class="social-links">
+            <a href="https://github.com/mrwn10" target="_blank" class="github">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/marwin-dalin-29a924278/" target="_blank" class="linkedin">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" class="facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="quick-links">
+            <a href="../index.html">Home</a>
+            <a href="about_me.html">About Me</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="services.html">Services</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Marwin Dalin. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/about_me.js"></script>
 </body>
 </html>

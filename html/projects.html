@@ -3,87 +3,288 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="../img/github.png" type="image/png" />
   <link rel="stylesheet" href="../css/projects.css" />
-  <title>Projects</title>
+  <title>Projects | Marwin Dalin</title>
 </head>
 <body>
   <nav>
-    <div class="logo">MyPortfolio</div>
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-text">Marwin Dalin</span>
+      </div>
 
-    <!-- Mobile Menu Toggle -->
-    <input type="checkbox" id="menu-checkbox" />
-    <label for="menu-checkbox" class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-btn">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </label>
 
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../html/about_me.html">About Me</a></li>
-      <li><a href="../html/projects.html" class="active">Projects</a></li>
-      <li><a href="../html/skills.html">Skills</a></li>
-      <li><a href="../html/services.html">Services</a></li>
-      <li><a href="../cv/Dalin-CV.pdf" download class="download-btn" target="_blank">Download CV</a></li>
-    </ul>
+      <div class="nav-menu">
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="about_me.html">About Me</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="services.html">Services</a>
+        </div>
+        <a href="../cv/Dalin-CV.pdf" download class="download-btn" target="_blank">
+          <i class="fas fa-download"></i> Download CV
+        </a>
+      </div>
+      
+      <!-- Overlay for mobile menu -->
+      <div class="menu-overlay"></div>
+    </div>
   </nav>
 
   <main class="projects-container">
-    <h1>My Projects</h1>
-    <p class="intro">
-      Here are some of my recent works showcasing my skills and creativity.
-    </p>
+    <!-- Hero Section -->
+    <section class="projects-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">My Projects</h1>
+          <p class="hero-subtitle">
+            A showcase of my hands-on work and technical learning journey. These projects demonstrate practical application 
+            of web development, systems configuration, and problem-solving skills.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <div class="project-card">
-      <h2>Web E-commerce</h2>
-      <p>A school project for Kids & Babies products — an E-commerce like Amazon.</p>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Flask</li>
-        <li>MySQL</li>
-      </ul>
-      <a href="https://github.com/mrwn10/web-ecommerce" class="view-code" target="_blank">View Code</a>
-    </div>
+    <!-- Main Projects Section -->
+    <section class="projects-content">
+      <div class="container">
+        <!-- Project 1: Web E-commerce -->
+        <div class="content-card">
+          <div class="card-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="card-content">
+            <h2>Web E-commerce</h2>
+            <p>A full-stack school project for Kids & Babies products — an Amazon-like e-commerce platform with user authentication, 
+              product catalog, shopping cart, and order processing functionality.</p>
+            
+            <div class="project-highlights">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>User authentication & authorization</li>
+                <li>Product catalog with categories</li>
+                <li>Shopping cart with quantity management</li>
+                <li>Order processing system</li>
+                <li>Admin dashboard for product management</li>
+              </ul>
+              
+              <div class="tech-stack">
+                <h4>Tech Stack:</h4>
+                <div class="tech-tags">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Flask</span>
+                  <span class="tag">MySQL</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="https://github.com/mrwn10/web-ecommerce" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
 
-    <div class="project-card">
-      <h2>Mobile E-commerce</h2>
-      <p>Mobile version of the web shop, communicating via API. Uses JSON for smooth backend connection.</p>
-      <ul>
-        <li>Dart</li>
-        <li>Flutter</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Flask</li>
-        <li>MySQL</li>
-      </ul>
-      <a href="https://github.com/mrwn10/mobile-ecommerce" class="view-code" target="_blank">View Code</a>
-    </div>
+        <!-- Project 2: Mobile E-commerce -->
+        <div class="content-card">
+          <div class="card-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="card-content">
+            <h2>Mobile E-commerce</h2>
+            <p>Mobile application version of the web shop, communicating via RESTful API. Features JSON-based data exchange 
+              with a Flutter frontend and Flask backend.</p>
+            
+            <div class="project-highlights">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Cross-platform mobile application</li>
+                <li>RESTful API integration</li>
+                <li>JSON data serialization</li>
+                <li>Responsive mobile UI</li>
+                <li>Secure authentication</li>
+              </ul>
+              
+              <div class="tech-stack">
+                <h4>Tech Stack:</h4>
+                <div class="tech-tags">
+                  <span class="tag">Dart</span>
+                  <span class="tag">Flutter</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Flask</span>
+                  <span class="tag">MySQL</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="https://github.com/mrwn10/mobile-ecommerce" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
 
-    <div class="project-card">
-      <h2>Personal Portfolio</h2>
-      <p>This responsive portfolio you’re browsing</p>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-      </ul>
-      <a href="https://github.com/mrwn10/personal-portfolio" class="view-code" target="_blank">View Code</a>
-    </div>
+        <!-- Project 3: Student Portal with Blockchain Certificate Verification -->
+        <div class="content-card">
+          <div class="card-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="card-content">
+            <h2>Student Portal with Blockchain Certificate Verification</h2>
+            <p>A comprehensive student portal system featuring blockchain-based certificate verification for TESDA-hosted 
+              applications. Implements secure certificate validation and student management features.</p>
+            
+            <div class="project-highlights">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Blockchain-based certificate verification</li>
+                <li>Student management portal</li>
+                <li>Secure certificate issuance</li>
+                <li>Certificate validation system</li>
+                <li>Admin dashboard for management</li>
+              </ul>
+              
+              <div class="tech-stack">
+                <h4>Tech Stack:</h4>
+                <div class="tech-tags">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Flask</span>
+                  <span class="tag">Git</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="https://github.com/mrwn10/lsef-tesda-hosted" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
 
-    <div class="project-card">
-      <h2>Cisco Packet Tracer Projects</h2>
-      <p>Nothing special just a compiled projects using Cisco Packet Tracer Simulation</p>
-      <a href="https://github.com/mrwn10/cisco-packet-tracer" class="view-code" target="_blank">View Code</a>
-    </div>
+        <!-- Project 4: Personal Portfolio -->
+        <div class="content-card">
+          <div class="card-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="card-content">
+            <h2>Personal Portfolio</h2>
+            <p>This responsive portfolio website showcasing my skills, projects, and professional journey. Built with semantic HTML, 
+              modern CSS, and interactive JavaScript.</p>
+            
+            <div class="project-highlights">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Fully responsive design</li>
+                <li>Smooth animations & transitions</li>
+                <li>Mobile-first approach</li>
+                <li>Interactive navigation</li>
+                <li>Accessibility optimized</li>
+              </ul>
+              
+              <div class="tech-stack">
+                <h4>Tech Stack:</h4>
+                <div class="tech-tags">
+                  <span class="tag">HTML5</span>
+                  <span class="tag">CSS3</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Responsive Design</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="https://github.com/mrwn10/personal-portfolio" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </div>
 
-    <div class="project-card">
-      <h2>Others</h2>
-      <p>This code would probably get outdated as time pass by so please check out my Github Account for more information.</p>
-      <a href="https://github.com/mrwn10" class="view-code" target="_blank">View Code</a>
-    </div>
+        <!-- More Projects Note -->
+        <div class="content-card more-projects-card">
+          <div class="card-icon">
+            <i class="fas fa-code-branch"></i>
+          </div>
+          <div class="card-content">
+            <h2>More Projects & Updates</h2>
+            <p>This portfolio represents a snapshot of my current work. As I continue to learn and build new projects,
+              my GitHub repository gets updated regularly with fresh code, experiments, and improvements.</p>
+            
+            <div class="update-note">
+              <i class="fas fa-info-circle"></i>
+              <p><strong>Note:</strong> Some code and projects may get updated or replaced as I explore new technologies
+              and improve my skills. For the most current work, please visit my GitHub profile.</p>
+            </div>
+            
+            <a href="https://github.com/mrwn10" class="github-profile-link" target="_blank">
+              <i class="fab fa-github"></i> View All Projects on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Contact Information</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> marwindalin10@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 0947 437 1682</p>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Connect With Me</h4>
+          <div class="social-links">
+            <a href="https://github.com/mrwn10" target="_blank" class="github">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/marwin-dalin-29a924278/" target="_blank" class="linkedin">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" class="facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="quick-links">
+            <a href="../index.html">Home</a>
+            <a href="about_me.html">About Me</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="services.html">Services</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Marwin Dalin. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/projects.js"></script>
 </body>
 </html>

@@ -3,51 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="img/github.png" type="image/png" />
   <link rel="stylesheet" href="css/homepage.css" />
-  <title>Home</title>
+  <title>Marwin Dalin | Portfolio</title>
 </head>
 <body>
   <nav>
-    <div class="logo">MyPortfolio</div>
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-text">Marwin Dalin</span>
+      </div>
 
-    <!-- Mobile Menu Toggle -->
-    <input type="checkbox" id="menu-checkbox" />
-    <label for="menu-checkbox" class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-btn">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </label>
 
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="html/about_me.html">About Me</a></li>
-      <li><a href="html/projects.html">Projects</a></li>
-      <li><a href="html/skills.html">Skills</a></li>
-      <li><a href="html/services.html">Services</a></li>
-      <li><a href="cv/Dalin-CV.pdf" download class="download-btn" target="_blank">Download CV</a></li>
-    </ul>
+      <div class="nav-menu">
+        <div class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="html/about_me.html">About Me</a>
+          <a href="html/projects.html">Projects</a>
+          <a href="html/skills.html">Skills</a>
+          <a href="html/services.html">Services</a>
+        </div>
+        <a href="cv/Dalin-CV.pdf" download class="download-btn" target="_blank">
+          <i class="fas fa-download"></i> Download CV
+        </a>
+      </div>
+      
+      <!-- Overlay for mobile menu -->
+      <div class="menu-overlay"></div>
+    </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-image">
-        <img src="img/formal.jpeg" alt="Marwin Dalin" />
-      </div>
-      <h1>Hi, I'm Marwin Dalin</h1>
-      <h3>Aspiring IT Support / Junior Web Developer</h3>
-      <p>
-        Skilled in both frontend and backend development, 
-        I’m seeking opportunities to enhance my abilities and contribute to exciting projects. 
-        I’m also interested in software and hardware maintenance, as well as setup tasks.
-      </p>
-      <div class="hero-buttons">
-        <a href="html/about_me.html" class="btn">Learn More</a>
-        <a href="html/projects.html" class="btn">My Projects</a>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-image">
+          <img src="img/formal.jpeg" alt="Marwin Dalin" />
+        </div>
+        <div class="hero-text">
+          <h1>Hi, I'm <span class="highlight">Marwin Dalin</span></h1>
+          <h3>Aspiring IT Support / Junior Web Developer</h3>
+          <p>
+            Skilled in both frontend and backend development, 
+            I'm seeking opportunities to enhance my abilities and contribute to exciting projects. 
+            I'm also interested in software and hardware maintenance, as well as setup tasks.
+          </p>
+          <div class="hero-buttons">
+            <a href="html/about_me.html" class="btn btn-primary">
+              Learn More
+            </a>
+            <a href="html/projects.html" class="btn btn-secondary">
+              My Projects
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <div style="height:20px;"></div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Contact Information</h4>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> marwindalin10@gmail.com</p>
+            <p><i class="fas fa-phone"></i> 0947 437 1682</p>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Connect With Me</h4>
+          <div class="social-links">
+            <a href="https://github.com/mrwn10" target="_blank" class="github">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/marwin-dalin-29a924278/" target="_blank" class="linkedin">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" class="facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="quick-links">
+            <a href="index.html">Home</a>
+            <a href="html/about_me.html">About Me</a>
+            <a href="html/projects.html">Projects</a>
+            <a href="html/skills.html">Skills</a>
+            <a href="html/services.html">Services</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Marwin Dalin. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/homepage.js"></script>
 </body>
 </html>
