@@ -1,697 +1,84 @@
-/* Reset and Base Styles - EXACT SAME as About Me */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Custom CSS for Projects Page - Only Tailwind Extensions */
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f8f9fa;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Navigation - EXACT SAME as About Me */
-nav {
-  background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.logo .logo-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #2c3e50;
-  text-decoration: none;
-}
-
-/* Hamburger Menu Button - EXACT SAME */
-.menu-btn {
-  display: none;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 1003;
-  background: none;
-  border: none;
-  position: relative;
-}
-
-.menu-icon {
-  width: 30px;
-  height: 20px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.menu-icon span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #2c3e50;
-  border-radius: 3px;
-  transition: 0.3s;
-  transform-origin: center;
-}
-
-#menu-toggle {
-  display: none;
-}
-
-/* Navigation Menu - EXACT SAME */
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  z-index: 1002;
-  position: relative;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: #555;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-  padding: 8px 0;
-  position: relative;
-}
-
-.nav-links a:hover {
-  color: #3498db;
-}
-
-.nav-links a.active {
-  color: #3498db;
-  font-weight: 600;
-}
-
-.nav-links a.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #3498db;
-}
-
-/* Download Button - EXACT SAME */
-.download-btn {
-  background: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.download-btn:hover {
-  background: #2980b9;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
-}
-
-/* Menu Overlay - EXACT SAME */
-.menu-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Projects Hero Section - Similar to About Me hero */
-.projects-hero {
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-  padding: 4rem 0;
-  text-align: center;
-}
-
-.hero-content {
-  background: white;
-  padding: 3rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.hero-title {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.8;
-}
-
-/* Projects Content - Using EXACT SAME card structure as About Me */
-.projects-content {
-  padding: 4rem 0;
-}
-
+/* Animation for card loading */
 .content-card {
-  background: white;
-  border-radius: 10px;
-  padding: 2.5rem;
-  margin-bottom: 2.5rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.content-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.card-icon {
-  background: #e3f2fd;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 5px;
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-.card-icon i {
-  font-size: 1.8rem;
-  color: #3498db;
-}
-
-.card-content {
-  flex: 1;
-}
-
-.card-content h2 {
-  font-size: 1.8rem;
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #ecf0f1;
-}
-
-.card-content p {
-  color: #555;
-  margin-bottom: 1.2rem;
-  line-height: 1.8;
-}
-
-/* Project Highlights - Similar to Experience Highlights in About Me */
-.project-highlights {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border-left: 4px solid #3498db;
-}
-
-.project-highlights h4 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.project-highlights ul {
-  padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.project-highlights li {
-  margin-bottom: 0.8rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-.tech-stack {
-  margin-top: 1.5rem;
-}
-
-.tech-stack h4 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-
-/* Tags - EXACT SAME as About Me */
-.tag {
-  background: #e3f2fd;
-  color: #1565c0;
-  padding: 0.5rem 1.2rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  border: 1px solid #bbdefb;
-  transition: all 0.3s ease;
-}
-
-.tag:hover {
-  background: #bbdefb;
-  transform: translateY(-2px);
-}
-
-/* Project Links */
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #3498db;
-  color: white;
-  padding: 12px 28px;
+::-webkit-scrollbar-thumb {
+  background: #888;
   border-radius: 5px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-  border: 2px solid #3498db;
 }
 
-.project-link:hover {
-  background: white;
-  color: #3498db;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
-.project-link i {
-  font-size: 1.2rem;
-}
-
-/* More Projects Card Specific Styles */
-.more-projects-card {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-left: 5px solid #3498db;
-}
-
-.update-note {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem;
-  background: rgba(52, 152, 219, 0.1);
-  border-radius: 8px;
-  border-left: 4px solid #3498db;
-  margin: 2rem 0;
-}
-
-.update-note i {
-  color: #3498db;
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-
-.update-note p {
-  margin: 0;
-  color: #555;
-  font-style: italic;
-}
-
-.github-profile-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: #2c3e50;
-  color: white;
-  padding: 14px 32px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  border: 2px solid #2c3e50;
-}
-
-.github-profile-link:hover {
-  background: white;
-  color: #2c3e50;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.15);
-}
-
-.github-profile-link i {
-  font-size: 1.4rem;
-}
-
-/* Footer - EXACT SAME as About Me */
-footer {
-  background: #2c3e50;
-  color: white;
-  padding: 4rem 0 2rem;
-  margin-top: auto;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-
-.footer-section h4 {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  color: #ecf0f1;
+/* Active link styles - Consistent with reference */
+.active-link {
   position: relative;
-  padding-bottom: 10px;
+  font-weight: 600;
 }
 
-.footer-section h4::after {
+.active-link::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 3px;
-  background: #3498db;
-  border-radius: 2px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background-color: #3b82f6;
+  border-radius: 1px;
 }
 
-.contact-info p {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #bdc3c7;
-  font-size: 1rem;
+.active-mobile-link {
+  position: relative;
+  font-weight: 600;
+  border-left: 3px solid #3b82f6;
 }
 
-.contact-info i {
-  color: #3498db;
-  width: 20px;
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s;
-  font-size: 1.3rem;
-}
-
-.social-links a:hover {
-  background: #3498db;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-}
-
-.quick-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.quick-links a {
-  color: #bdc3c7;
-  text-decoration: none;
-  transition: all 0.3s;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.quick-links a:hover {
-  color: #3498db;
-  padding-left: 10px;
-  border-color: rgba(52, 152, 219, 0.3);
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: #95a5a6;
-  font-size: 0.9rem;
-}
-
-/* Mobile Responsive Styles - EXACT SAME as About Me */
-@media (max-width: 1024px) {
-  .content-card {
-    padding: 2rem;
-  }
-  
-  .footer-content {
-    gap: 2rem;
-  }
-}
-
+/* Mobile menu styles */
 @media (max-width: 768px) {
-  .menu-btn {
-    display: block;
+  /* Ensure mobile menu has enough height */
+  .mobile-menu {
+    max-height: 600px !important;
   }
   
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: white;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 1001;
-    gap: 2rem;
-    opacity: 1;
-    visibility: visible;
-    width: 100%;
-    height: 100vh;
-    overflow-y: auto;
+  /* Active mobile link indicator */
+  .active-mobile-link i {
+    color: #3b82f6;
   }
   
-  /* Show menu when checkbox is checked - EXACT SAME */
-  #menu-toggle:checked ~ .nav-menu {
-    transform: translateX(0);
-  }
-  
-  /* Show overlay when menu is open - EXACT SAME */
-  #menu-toggle:checked ~ .menu-overlay {
-    display: block;
-    opacity: 1;
-  }
-  
-  /* Hamburger to X animation - EXACT SAME */
-  #menu-toggle:checked + .menu-btn .menu-icon span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-  }
-  
-  #menu-toggle:checked + .menu-btn .menu-icon span:nth-child(2) {
-    opacity: 0;
-    transform: scale(0);
-  }
-  
-  #menu-toggle:checked + .menu-btn .menu-icon span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-  
-  /* Prevent body scroll when menu is open - EXACT SAME */
-  body.menu-open {
-    overflow: hidden;
-  }
-  
-  .nav-links {
-    flex-direction: column;
-    gap: 0;
-    text-align: center;
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  .nav-links a {
-    padding: 1.2rem;
-    font-size: 1.2rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-  
-  .nav-links a.active::after {
-    display: none;
-  }
-  
-  .nav-links a.active {
-    background: rgba(52, 152, 219, 0.1);
-    border-radius: 5px;
-    margin: 5px 0;
-  }
-  
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-  
-  .nav-menu .download-btn {
-    margin-top: 1rem;
-    padding: 14px 32px;
-    font-size: 1.1rem;
-    z-index: 1002;
-    position: relative;
-  }
-  
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-  
+  /* Card animations on mobile */
   .content-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5rem;
-    margin: 0 1rem 2rem;
-  }
-  
-  .card-icon {
-    margin: 0 auto;
-  }
-  
-  .tech-tags {
-    justify-content: center;
-  }
-  
-  .tag {
-    font-size: 0.8rem;
-    padding: 0.4rem 1rem;
-  }
-  
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  
-  .footer-section h4 {
-    font-size: 1.2rem;
-  }
-  
-  .footer-section h4::after {
-    width: 40px;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
-@media (max-width: 480px) {
-  .nav-container {
-    padding: 0 15px;
+/* Print styles */
+@media print {
+  nav, footer, .no-print {
+    display: none !important;
   }
   
-  .logo .logo-text {
-    font-size: 1.3rem;
-  }
-  
-  .hero-content {
-    padding: 2rem 1rem;
-  }
-  
-  .hero-title {
-    font-size: 1.8rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.95rem;
+  body {
+    background: white !important;
   }
   
   .content-card {
-    padding: 1.5rem 1rem;
-    margin: 0 0.5rem 1.5rem;
-  }
-  
-  .card-content h2 {
-    font-size: 1.5rem;
-  }
-  
-  .project-link,
-  .github-profile-link {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .container {
-    padding: 0 15px;
-  }
-  
-  .update-note {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .footer-section h4 {
-    font-size: 1.1rem;
-  }
-  
-  .contact-info p {
-    font-size: 0.95rem;
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
   }
 }

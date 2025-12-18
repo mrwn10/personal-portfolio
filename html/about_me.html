@@ -8,296 +8,609 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="../img/github.png" type="image/png" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            'primary': '#3b82f6',
+            'secondary': '#1e40af',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+  <!-- Your custom CSS -->
   <link rel="stylesheet" href="../css/about_me.css" />
+  
   <title>About Me | Marwin Dalin</title>
 </head>
-<body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo">
-        <span class="logo-text">Marwin Dalin</span>
-      </div>
-
-      <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" class="menu-btn">
-        <div class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </label>
-
-      <div class="nav-menu">
-        <div class="nav-links">
-          <a href="../index.html">Home</a>
-          <a href="about_me.html" class="active">About Me</a>
-          <a href="projects.html">Projects</a>
-          <a href="skills.html">Skills</a>
-          <a href="services.html">Services</a>
-        </div>
-        <a href="../cv/Dalin-CV.pdf" download class="download-btn" target="_blank">
-          <i class="fas fa-download"></i> Download CV
-        </a>
-      </div>
-      
-      <!-- Overlay for mobile menu -->
-      <div class="menu-overlay"></div>
-    </div>
-  </nav>
-
-  <main class="about-container">
-    <!-- Profile Summary Section -->
-    <section class="profile-summary">
-      <div class="container">
-        <div class="profile-header">
-          <div class="profile-image-small">
-            <img src="../img/formal.jpeg" alt="Marwin Dalin" />
-          </div>
-          <div class="profile-details">
-            <h1>Marwin Dalin</h1>
-            <h2>Aspiring IT Support / Junior Web Developer</h2>
-            <div class="location">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Laguna, Philippines</span>
-            </div>
-            <div class="contact-info">
-              <p><i class="fas fa-envelope"></i> marwindalin10@gmail.com</p>
-              <p><i class="fas fa-phone"></i> 0947 437 1682</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="profile-description">
-          <p>Aspiring IT professional interested in web development and technical support, seeking opportunities to gain real-world exposure while building practical frontend and backend skills.</p>
+<body class="font-poppins bg-gray-50">
+  <div id="app">
+    <!-- Navigation - Consistent with Homepage -->
+    <nav class="sticky top-0 bg-white shadow-lg z-50 transition-all duration-300" 
+         :class="{'shadow-xl bg-white/95': navScrolled, 'transform -translate-y-full': navHidden}"
+         :style="{'transform': navHidden ? 'translateY(-100%)' : 'translateY(0)'}">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="text-xl font-bold text-gray-800">Marwin Dalin</div>
           
-          <div class="technical-exposure">
-            <h3>Technical Exposure</h3>
-            <p>Through hands-on learning and personal projects, I have gained experience with:</p>
-            <div class="exposure-items">
-              <div class="exposure-item">
-                <i class="fas fa-server"></i>
-                <span>Virtual Machine Setup (Linux & Windows)</span>
-              </div>
-              <div class="exposure-item">
-                <i class="fas fa-code"></i>
-                <span>Website Development & Deployment</span>
-              </div>
-              <div class="exposure-item">
-                <i class="fas fa-ticket-alt"></i>
-                <span>osTicket Setup with XAMPP</span>
-              </div>
-              <div class="exposure-item">
-                <i class="fas fa-tools"></i>
-                <span>IT Support & Troubleshooting</span>
-              </div>
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="../index.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative', 
+                        currentPage === 'index.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              Home
+              <span v-if="currentPage === 'index.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+            </a>
+            <a href="about_me.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative',
+                        currentPage === 'about_me.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              About Me
+              <span v-if="currentPage === 'about_me.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+            </a>
+            <a href="projects.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative',
+                        currentPage === 'projects.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              Projects
+              <span v-if="currentPage === 'projects.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+            </a>
+            <a href="skills.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative',
+                        currentPage === 'skills.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              Skills
+              <span v-if="currentPage === 'skills.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+            </a>
+            <a href="services.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative',
+                        currentPage === 'services.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              Services
+              <span v-if="currentPage === 'services.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+            </a>
+            
+            <a href="../cv/Dalin-CV.pdf" download 
+               @click="downloadCV"
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300 hover:shadow-lg">
+              <i :class="isDownloading ? 'fas fa-spinner fa-spin' : 'fas fa-download'"></i>
+              <span>{{ isDownloading ? 'Downloading...' : 'Download CV' }}</span>
+            </a>
+          </div>
+          
+          <!-- Mobile Hamburger Button -->
+          <button @click="toggleMenu" 
+                  class="md:hidden focus:outline-none"
+                  :aria-expanded="menuOpen"
+                  :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+            <div class="w-6 h-5 relative flex flex-col justify-between">
+              <span :class="['w-full h-0.5 bg-gray-700 rounded transition-all duration-300', 
+                           menuOpen ? 'rotate-45 translate-y-2' : '']"></span>
+              <span :class="['w-full h-0.5 bg-gray-700 rounded transition-all duration-300', 
+                           menuOpen ? 'opacity-0' : '']"></span>
+              <span :class="['w-full h-0.5 bg-gray-700 rounded transition-all duration-300', 
+                           menuOpen ? '-rotate-45 -translate-y-2' : '']"></span>
             </div>
-            <p class="junior-note">As an intern and aspiring professional, I'm building my foundation in these areas and eager to grow through practical experience.</p>
+          </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div :class="['md:hidden overflow-hidden transition-all duration-300', 
+                     menuOpen ? 'max-h-[600px]' : 'max-h-0']">
+          <div class="py-4 space-y-4 border-t border-gray-200">
+            <a href="../index.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'index.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-home mr-3"></i>
+              Home
+              <span v-if="currentPage === 'index.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            <a href="about_me.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'about_me.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-user mr-3"></i>
+              About Me
+              <span v-if="currentPage === 'about_me.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            <a href="projects.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'projects.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-briefcase mr-3"></i>
+              Projects
+              <span v-if="currentPage === 'projects.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            <a href="skills.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'skills.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-code mr-3"></i>
+              Skills
+              <span v-if="currentPage === 'skills.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            <a href="services.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'services.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-cogs mr-3"></i>
+              Services
+              <span v-if="currentPage === 'services.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            
+            <!-- Download button with proper spacing -->
+            <div class="pt-4 border-t border-gray-300">
+              <a href="../cv/Dalin-CV.pdf" download 
+                 @click="downloadCV"
+                 class="block bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center space-x-2 transition-all duration-300 hover:shadow-lg">
+                <i :class="isDownloading ? 'fas fa-spinner fa-spin' : 'fas fa-download'"></i>
+                <span>{{ isDownloading ? 'Downloading...' : 'Download CV' }}</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </nav>
 
-    <!-- Main Content Cards -->
-    <section class="content-cards">
-      <div class="container">
-        <!-- Personal Summary Card -->
-        <div class="content-card">
-          <div class="card-icon">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="card-content">
-            <h2>Personal Summary</h2>
-            <p>Hello! I'm <strong>Marwin Dalin</strong>, an aspiring web developer from Laguna, Philippines. I enjoy creating user-friendly, responsive websites and applications through personal and academic projects. I work with both front-end and back-end technologies and have experience using SQL for database management.</p>
-            <p>While my hands-on experience is mainly in web development projects, I'm also eager to start an entry-level role in IT Support to grow my skills, help users, and gain real-world experience in the tech industry.</p>
-            
-            <div class="experience-highlights">
-              <h4>Recent Hands-on Experience:</h4>
-              <ul>
-                <li>Setting up and configuring virtual machines using both Linux and Windows environments</li>
-                <li>Full website development lifecycle - from initial coding to final deployment</li>
-                <li>Installing and configuring osTicket helpdesk system using XAMPP for ticketing solutions</li>
-                <li>Basic IT support tasks including troubleshooting and system maintenance</li>
-              </ul>
-              <p class="learning-note">This portfolio highlights my learning journey and the skills I can contribute. I am looking forward to opportunities to further apply and improve them through real-world exposure and teamwork.</p>
-            </div>
-            
-            <div class="focus-tags">
-              <span class="tag">Web Development</span>
-              <span class="tag">IT Support</span>
-              <span class="tag">Virtual Machines</span>
-              <span class="tag">Database Management</span>
-              <span class="tag">Helpdesk Systems</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Education Card -->
-        <div class="content-card">
-          <div class="card-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <div class="card-content">
-            <h2>Education</h2>
-            <div class="education-item">
-              <h3>Bachelor of Science in Information Technology</h3>
-              <div class="education-details">
-                <span class="institution">
-                  <i class="fas fa-university"></i> Laguna State Polytechnic University - Sta. Cruz Campus
-                </span>
-                <span class="duration">
-                  <i class="fas fa-calendar-alt"></i> 2021–Present
-                </span>
+    <main class="min-h-screen">
+      <!-- Profile Summary Section -->
+      <section class="py-12 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4">
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="p-6 md:p-8 lg:p-12">
+              <!-- Profile Header -->
+              <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8">
+                <!-- Profile Image -->
+                <div class="flex-shrink-0">
+                  <div class="relative group">
+                    <img src="../img/formal.jpeg" alt="Marwin Dalin" 
+                         class="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover border-8 border-white shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
+                    <div class="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-blue-400 transition-all duration-500"></div>
+                  </div>
+                </div>
+                
+                <!-- Profile Details -->
+                <div class="flex-1 text-center md:text-left">
+                  <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                    Marwin <span class="text-blue-600">Dalin</span>
+                  </h1>
+                  <h2 class="text-lg md:text-xl text-gray-600 font-medium mb-4">
+                    Aspiring IT Support / Junior Web Developer
+                  </h2>
+                  
+                  <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 mb-6">
+                    <div class="flex items-center justify-center md:justify-start gap-2 text-gray-700">
+                      <i class="fas fa-map-marker-alt text-blue-500"></i>
+                      <span class="font-medium">Laguna, Philippines</span>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                      <div class="flex items-center justify-center md:justify-start gap-2 text-gray-700">
+                        <i class="fas fa-envelope text-blue-500"></i>
+                        <span>marwindalin10@gmail.com</span>
+                      </div>
+                      <div class="flex items-center justify-center md:justify-start gap-2 text-gray-700">
+                        <i class="fas fa-phone text-blue-500"></i>
+                        <span>0947 437 1682</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p>Currently completing my degree while gaining practical experience through internships and personal projects. Specializing in Web Development with exposure to IT support systems and network fundamentals.</p>
               
-              <div class="academic-focus">
-                <h4>Academic Focus Areas:</h4>
-                <div class="focus-grid">
-                  <div class="focus-subject">
-                    <i class="fas fa-laptop-code"></i>
-                    <span>Web Programming</span>
+              <!-- Profile Description -->
+              <div class="space-y-6">
+                <p class="text-gray-700 text-lg leading-relaxed">
+                  Aspiring IT professional interested in web development and technical support, seeking opportunities to gain real-world exposure while building practical frontend and backend skills.
+                </p>
+                
+                <!-- Technical Exposure -->
+                <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
+                  <h3 class="text-xl font-bold text-gray-800 mb-4">Technical Exposure</h3>
+                  <p class="text-gray-700 mb-6">
+                    Through hands-on learning and personal projects, I have gained experience with:
+                  </p>
+                  
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-server text-blue-600"></i>
+                      </div>
+                      <span class="font-medium text-gray-800">Virtual Machine Setup (Linux & Windows)</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-code text-blue-600"></i>
+                      </div>
+                      <span class="font-medium text-gray-800">Website Development & Deployment</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-ticket-alt text-blue-600"></i>
+                      </div>
+                      <span class="font-medium text-gray-800">osTicket Setup with XAMPP</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-tools text-blue-600"></i>
+                      </div>
+                      <span class="font-medium text-gray-800">IT Support & Troubleshooting</span>
+                    </div>
                   </div>
-                  <div class="focus-subject">
-                    <i class="fas fa-cogs"></i>
-                    <span>System Administration</span>
+                  
+                  <p class="text-gray-600 italic text-sm bg-blue-100/50 p-4 rounded-lg border-l-3 border-blue-400">
+                    As an intern and aspiring professional, I'm building my foundation in these areas and eager to grow through practical experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Content Cards -->
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <!-- Personal Summary Card -->
+          <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
+               :style="{opacity: cardLoaded[0] ? '1' : '0', transform: cardLoaded[0] ? 'translateY(0)' : 'translateY(20px)'}">
+            <div class="flex flex-col md:flex-row items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                  <i class="fas fa-user text-2xl text-blue-600"></i>
+                </div>
+              </div>
+              
+              <div class="flex-1">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 pb-3 border-b border-gray-200">
+                  Personal Summary
+                </h2>
+                
+                <div class="space-y-6">
+                  <p class="text-gray-700 text-lg leading-relaxed">
+                    Hello! I'm <strong class="text-blue-600">Marwin Dalin</strong>, an aspiring web developer from Laguna, Philippines. I enjoy creating user-friendly, responsive websites and applications through personal and academic projects. I work with both front-end and back-end technologies and have experience using SQL for database management.
+                  </p>
+                  
+                  <p class="text-gray-700 text-lg leading-relaxed">
+                    While my hands-on experience is mainly in web development projects, I'm also eager to start an entry-level role in IT Support to grow my skills, help users, and gain real-world experience in the tech industry.
+                  </p>
+                  
+                  <!-- Experience Highlights -->
+                  <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-500 mt-6">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Recent Hands-on Experience:</h4>
+                    <ul class="space-y-3 mb-6">
+                      <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-blue-500 mt-1"></i>
+                        <span class="text-gray-700">Setting up and configuring virtual machines using both Linux and Windows environments</span>
+                      </li>
+                      <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-blue-500 mt-1"></i>
+                        <span class="text-gray-700">Full website development lifecycle - from initial coding to final deployment</span>
+                      </li>
+                      <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-blue-500 mt-1"></i>
+                        <span class="text-gray-700">Installing and configuring osTicket helpdesk system using XAMPP for ticketing solutions</span>
+                      </li>
+                      <li class="flex items-start gap-3">
+                        <i class="fas fa-check text-blue-500 mt-1"></i>
+                        <span class="text-gray-700">Basic IT support tasks including troubleshooting and system maintenance</span>
+                      </li>
+                    </ul>
+                    
+                    <p class="text-gray-600 italic text-sm bg-blue-100/50 p-4 rounded-lg border-l-3 border-blue-400">
+                      This portfolio highlights my learning journey and the skills I can contribute. I am looking forward to opportunities to further apply and improve them through real-world exposure and teamwork.
+                    </p>
+                  </div>
+                  
+                  <!-- Focus Tags -->
+                  <div class="flex flex-wrap gap-3 mt-8">
+                    <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium hover:bg-blue-200 transition-colors duration-300 cursor-default">
+                      Web Development
+                    </span>
+                    <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium hover:bg-blue-200 transition-colors duration-300 cursor-default">
+                      IT Support
+                    </span>
+                    <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium hover:bg-blue-200 transition-colors duration-300 cursor-default">
+                      Virtual Machines
+                    </span>
+                    <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium hover:bg-blue-200 transition-colors duration-300 cursor-default">
+                      Database Management
+                    </span>
+                    <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-medium hover:bg-blue-200 transition-colors duration-300 cursor-default">
+                      Helpdesk Systems
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Card -->
+          <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 delay-75"
+               :style="{opacity: cardLoaded[1] ? '1' : '0', transform: cardLoaded[1] ? 'translateY(0)' : 'translateY(20px)'}">
+            <div class="flex flex-col md:flex-row items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                  <i class="fas fa-graduation-cap text-2xl text-blue-600"></i>
+                </div>
+              </div>
+              
+              <div class="flex-1">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 pb-3 border-b border-gray-200">
+                  Education
+                </h2>
+                
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-500">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                    Bachelor of Science in Information Technology
+                  </h3>
+                  
+                  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-3 text-gray-700">
+                      <i class="fas fa-university text-blue-500"></i>
+                      <span class="font-medium">Laguna State Polytechnic University - Sta. Cruz Campus</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 text-gray-700">
+                      <i class="fas fa-calendar-alt text-blue-500"></i>
+                      <span class="font-medium">2021–Present</span>
+                    </div>
+                  </div>
+                  
+                  <p class="text-gray-700 mb-6">
+                    Currently completing my degree while gaining practical experience through internships and personal projects. Specializing in Web Development with exposure to IT support systems and network fundamentals.
+                  </p>
+                  
+                  <!-- Academic Focus -->
+                  <div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-4">Academic Focus Areas:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                          <i class="fas fa-laptop-code text-blue-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Web Programming</span>
+                      </div>
+                      
+                      <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                          <i class="fas fa-cogs text-blue-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">System Administration</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Career Goals Card -->
+          <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 delay-150"
+               :style="{opacity: cardLoaded[2] ? '1' : '0', transform: cardLoaded[2] ? 'translateY(0)' : 'translateY(20px)'}">
+            <div class="flex flex-col md:flex-row items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                  <i class="fas fa-flag text-2xl text-blue-600"></i>
+                </div>
+              </div>
+              
+              <div class="flex-1">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 pb-3 border-b border-gray-200">
+                  Career Goals & Approach
+                </h2>
+                
+                <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                  My mission is to build a strong foundation in IT Support and technical problem-solving while continuing to develop my skills in full-stack web development. I aim to grow into a well-rounded IT professional who can assist users, maintain systems, and build scalable web applications when needed.
+                </p>
+                
+                <!-- Approach Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-transparent hover:border-blue-500 hover:shadow-lg transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                      <i class="fas fa-compass text-xl text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-3">Exploring New Technologies</h4>
+                    <p class="text-gray-600">Continuously learning about new tools and frameworks through hands-on practice and experimentation.</p>
+                  </div>
+                  
+                  <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-transparent hover:border-blue-500 hover:shadow-lg transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                      <i class="fas fa-book-open text-xl text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-3">Self-Directed Learning</h4>
+                    <p class="text-gray-600">Taking initiative to learn through online courses, documentation, and building personal projects.</p>
+                  </div>
+                  
+                  <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-transparent hover:border-blue-500 hover:shadow-lg transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                      <i class="fas fa-puzzle-piece text-xl text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-3">Practical Problem Solving</h4>
+                    <p class="text-gray-600">Applying logical thinking to troubleshoot issues and find effective solutions in real-world scenarios.</p>
+                  </div>
+                </div>
+
+                <!-- Inspiration Quote -->
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border-l-4 border-blue-500">
+                  <div class="flex items-start gap-4">
+                    <i class="fas fa-quote-left text-3xl text-blue-400 mt-1"></i>
+                    <div>
+                      <blockquote class="text-gray-700 italic text-lg mb-2">
+                        "And without faith it is impossible to please Him, for he who comes to God must believe that He is and that He is a rewarder of those who seek Him."
+                      </blockquote>
+                      <p class="text-gray-600 font-medium">— Hebrews 11:6</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hobbies Card -->
+          <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 delay-200"
+               :style="{opacity: cardLoaded[3] ? '1' : '0', transform: cardLoaded[3] ? 'translateY(0)' : 'translateY(20px)'}">
+            <div class="flex flex-col md:flex-row items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                  <i class="fas fa-heart text-2xl text-blue-600"></i>
+                </div>
+              </div>
+              
+              <div class="flex-1">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 pb-3 border-b border-gray-200">
+                  Hobbies & Interests
+                </h2>
+                
+                <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                  Outside of technology and learning, I enjoy various activities that help me stay balanced and creative:
+                </p>
+                
+                <!-- Hobbies Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-transparent hover:border-blue-500 hover:shadow-lg transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                      <i class="fas fa-basketball-ball text-xl text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">Basketball</h4>
+                    <p class="text-gray-600 text-sm">Team sports that teach collaboration and strategy</p>
+                  </div>
+                  
+                  <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-transparent hover:border-blue-500 hover:shadow-lg transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                      <i class="fas fa-gamepad text-xl text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">Gaming</h4>
+                    <p class="text-gray-600 text-sm">Strategic thinking and problem-solving in virtual environments</p>
+                  </div>
+                  
+                  <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-transparent hover:border-blue-500 hover:shadow-lg transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                      <i class="fas fa-bicycle text-xl text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">Cycling</h4>
+                    <p class="text-gray-600 text-sm">Exploring new places and maintaining physical fitness</p>
+                  </div>
+                  
+                  <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-transparent hover:border-blue-500 hover:shadow-lg transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                      <i class="fas fa-music text-xl text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">Music</h4>
+                    <p class="text-gray-600 text-sm">Hip Hop & Pop genres for inspiration and relaxation</p>
+                  </div>
+                  
+                  <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-transparent hover:border-blue-500 hover:shadow-lg transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                      <i class="fas fa-tv text-xl text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">Anime & Manhwa</h4>
+                    <p class="text-gray-600 text-sm">Appreciating storytelling and character development</p>
+                  </div>
+                  
+                  <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-transparent hover:border-blue-500 hover:shadow-lg transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                      <i class="fas fa-headphones text-xl text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">Audio</h4>
+                    <p class="text-gray-600 text-sm">Exploring different music styles and podcasts</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <!-- Career Goals Card -->
-        <div class="content-card">
-          <div class="card-icon">
-            <i class="fas fa-flag"></i>
-          </div>
-          <div class="card-content">
-            <h2>Career Goals & Approach</h2>
-            <p>My mission is to build a strong foundation in IT Support and technical problem-solving while continuing to develop my skills in full-stack web development. I aim to grow into a well-rounded IT professional who can assist users, maintain systems, and build scalable web applications when needed.</p>
-            
-            <div class="approach-grid">
-              <div class="approach-item">
-                <div class="approach-icon">
-                  <i class="fas fa-compass"></i>
-                </div>
-                <h4>Exploring New Technologies</h4>
-                <p>Continuously learning about new tools and frameworks through hands-on practice and experimentation.</p>
-              </div>
-              <div class="approach-item">
-                <div class="approach-icon">
-                  <i class="fas fa-book-open"></i>
-                </div>
-                <h4>Self-Directed Learning</h4>
-                <p>Taking initiative to learn through online courses, documentation, and building personal projects.</p>
-              </div>
-              <div class="approach-item">
-                <div class="approach-icon">
-                  <i class="fas fa-puzzle-piece"></i>
-                </div>
-                <h4>Practical Problem Solving</h4>
-                <p>Applying logical thinking to troubleshoot issues and find effective solutions in real-world scenarios.</p>
-              </div>
-            </div>
-
-            <div class="inspiration-quote">
-              <i class="fas fa-quote-left quote-icon"></i>
-              <blockquote>"And without faith it is impossible to please Him, for he who comes to God must believe that He is and that He is a rewarder of those who seek Him."</blockquote>
-              <p class="quote-source">— Hebrews 11:6</p>
+    <!-- Footer - Consistent with Homepage -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <!-- Contact -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-gray-700">Contact Information</h3>
+            <div class="space-y-4">
+              <p class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-blue-400"></i>
+                <span>marwindalin10@gmail.com</span>
+              </p>
+              <p class="flex items-center space-x-3">
+                <i class="fas fa-phone text-blue-400"></i>
+                <span>0947 437 1682</span>
+              </p>
             </div>
           </div>
-        </div>
-
-        <!-- Hobbies Card -->
-        <div class="content-card">
-          <div class="card-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <div class="card-content">
-            <h2>Hobbies & Interests</h2>
-            <p>Outside of technology and learning, I enjoy various activities that help me stay balanced and creative:</p>
-            
-            <div class="hobbies-grid">
-              <div class="hobby">
-                <i class="fas fa-basketball-ball"></i>
-                <h4>Basketball</h4>
-                <p>Team sports that teach collaboration and strategy</p>
-              </div>
-              <div class="hobby">
-                <i class="fas fa-gamepad"></i>
-                <h4>Gaming</h4>
-                <p>Strategic thinking and problem-solving in virtual environments</p>
-              </div>
-              <div class="hobby">
-                <i class="fas fa-bicycle"></i>
-                <h4>Cycling</h4>
-                <p>Exploring new places and maintaining physical fitness</p>
-              </div>
-              <div class="hobby">
-                <i class="fas fa-music"></i>
-                <h4>Music</h4>
-                <p>Hip Hop & Pop genres for inspiration and relaxation</p>
-              </div>
-              <div class="hobby">
-                <i class="fas fa-tv"></i>
-                <h4>Anime & Manhwa</h4>
-                <p>Appreciating storytelling and character development</p>
-              </div>
-              <div class="hobby">
-                <i class="fas fa-headphones"></i>
-                <h4>Audio</h4>
-                <p>Exploring different music styles and podcasts</p>
-              </div>
+          
+          <!-- Social -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-gray-700">Connect With Me</h3>
+            <div class="flex space-x-4">
+              <a href="https://github.com/mrwn10" target="_blank" 
+                 rel="noopener noreferrer"
+                 class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-all duration-300 hover:scale-110">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/marwin-dalin-29a924278/" target="_blank" 
+                 rel="noopener noreferrer"
+                 class="w-12 h-12 rounded-full bg-gray-800 hover:bg-blue-700 flex items-center justify-center transition-all duration-300 hover:scale-110">
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" 
+                 rel="noopener noreferrer"
+                 class="w-12 h-12 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-all duration-300 hover:scale-110">
+                <i class="fab fa-facebook text-xl"></i>
+              </a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Contact Information</h4>
-          <div class="contact-info">
-            <p><i class="fas fa-envelope"></i> marwindalin10@gmail.com</p>
-            <p><i class="fas fa-phone"></i> 0947 437 1682</p>
+          
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-gray-700">Quick Links</h3>
+            <div class="space-y-3">
+              <a href="../index.html" 
+                 :class="['block transition-colors', currentPage === 'index.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                Home
+              </a>
+              <a href="about_me.html" 
+                 :class="['block transition-colors', currentPage === 'about_me.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                About Me
+              </a>
+              <a href="projects.html" 
+                 :class="['block transition-colors', currentPage === 'projects.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                Projects
+              </a>
+              <a href="skills.html" 
+                 :class="['block transition-colors', currentPage === 'skills.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                Skills
+              </a>
+              <a href="services.html" 
+                 :class="['block transition-colors', currentPage === 'services.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                Services
+              </a>
+            </div>
           </div>
         </div>
         
-        <div class="footer-section">
-          <h4>Connect With Me</h4>
-          <div class="social-links">
-            <a href="https://github.com/mrwn10" target="_blank" class="github">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/marwin-dalin-29a924278/" target="_blank" class="linkedin">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" class="facebook">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <div class="quick-links">
-            <a href="../index.html">Home</a>
-            <a href="about_me.html">About Me</a>
-            <a href="projects.html">Projects</a>
-            <a href="skills.html">Skills</a>
-            <a href="services.html">Services</a>
-          </div>
+        <div class="text-center text-gray-400 pt-8 border-t border-gray-800">
+          <p>&copy; 2025 Marwin Dalin. All rights reserved.</p>
         </div>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Marwin Dalin. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script src="../js/about_me.js"></script>
 </body>

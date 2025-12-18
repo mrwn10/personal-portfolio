@@ -8,113 +8,336 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="img/github.png" type="image/png" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            'primary': '#3b82f6',
+            'secondary': '#1e40af',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+  <!-- Your custom CSS -->
   <link rel="stylesheet" href="css/homepage.css" />
+  
   <title>Marwin Dalin | Portfolio</title>
 </head>
-<body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo">
-        <span class="logo-text">Marwin Dalin</span>
-      </div>
-
-      <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" class="menu-btn">
-        <div class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </label>
-
-      <div class="nav-menu">
-        <div class="nav-links">
-          <a href="index.html" class="active">Home</a>
-          <a href="html/about_me.html">About Me</a>
-          <a href="html/projects.html">Projects</a>
-          <a href="html/skills.html">Skills</a>
-          <a href="html/services.html">Services</a>
-        </div>
-        <a href="cv/Dalin-CV.pdf" download class="download-btn" target="_blank">
-          <i class="fas fa-download"></i> Download CV
-        </a>
-      </div>
-      
-      <!-- Overlay for mobile menu -->
-      <div class="menu-overlay"></div>
-    </div>
-  </nav>
-
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-image">
-          <img src="img/formal.jpeg" alt="Marwin Dalin" />
-        </div>
-        <div class="hero-text">
-          <h1>Hi, I'm <span class="highlight">Marwin Dalin</span></h1>
-          <h3>Aspiring IT Support / Junior Web Developer</h3>
-          <p>
-            Skilled in both frontend and backend development, 
-            I'm seeking opportunities to enhance my abilities and contribute to exciting projects. 
-            I'm also interested in software and hardware maintenance, as well as setup tasks.
-          </p>
-          <div class="hero-buttons">
-            <a href="html/about_me.html" class="btn btn-primary">
-              Learn More
+<body class="font-poppins bg-gray-50">
+  <div id="app">
+    <!-- Navigation - Consistent with About Me Page -->
+    <nav class="sticky top-0 bg-white shadow-lg z-50 transition-all duration-300" 
+         :class="{'shadow-xl bg-white/95': navScrolled, 'transform -translate-y-full': navHidden}"
+         :style="{'transform': navHidden ? 'translateY(-100%)' : 'translateY(0)'}">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="text-xl font-bold text-gray-800">Marwin Dalin</div>
+          
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative', 
+                        currentPage === 'index.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              Home
+              <span v-if="currentPage === 'index.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
             </a>
-            <a href="html/projects.html" class="btn btn-secondary">
-              My Projects
+            <a href="html/about_me.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative',
+                        currentPage === 'about_me.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              About Me
+              <span v-if="currentPage === 'about_me.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
             </a>
+            <a href="html/projects.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative',
+                        currentPage === 'projects.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              Projects
+              <span v-if="currentPage === 'projects.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+            </a>
+            <a href="html/skills.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative',
+                        currentPage === 'skills.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              Skills
+              <span v-if="currentPage === 'skills.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+            </a>
+            <a href="html/services.html" 
+               :class="['px-3 py-2 text-gray-600 hover:text-blue-600 font-medium transition-colors relative',
+                        currentPage === 'services.html' ? 'text-blue-600 font-semibold active-link' : '']">
+              Services
+              <span v-if="currentPage === 'services.html'" class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
+            </a>
+            
+            <a href="cv/Dalin-CV.pdf" download 
+               @click="downloadCV"
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300 hover:shadow-lg">
+              <i :class="isDownloading ? 'fas fa-spinner fa-spin' : 'fas fa-download'"></i>
+              <span>{{ isDownloading ? 'Downloading...' : 'Download CV' }}</span>
+            </a>
+          </div>
+          
+          <!-- Mobile Hamburger Button -->
+          <button @click="toggleMenu" 
+                  class="md:hidden focus:outline-none"
+                  :aria-expanded="menuOpen"
+                  :aria-label="menuOpen ? 'Close menu' : 'Open menu'">
+            <div class="w-6 h-5 relative flex flex-col justify-between">
+              <span :class="['w-full h-0.5 bg-gray-700 rounded transition-all duration-300', 
+                           menuOpen ? 'rotate-45 translate-y-2' : '']"></span>
+              <span :class="['w-full h-0.5 bg-gray-700 rounded transition-all duration-300', 
+                           menuOpen ? 'opacity-0' : '']"></span>
+              <span :class="['w-full h-0.5 bg-gray-700 rounded transition-all duration-300', 
+                           menuOpen ? '-rotate-45 -translate-y-2' : '']"></span>
+            </div>
+          </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div :class="['md:hidden overflow-hidden transition-all duration-300', 
+                     menuOpen ? 'max-h-[600px]' : 'max-h-0']">
+          <div class="py-4 space-y-4 border-t border-gray-200">
+            <a href="index.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'index.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-home mr-3"></i>
+              Home
+              <span v-if="currentPage === 'index.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            <a href="html/about_me.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'about_me.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-user mr-3"></i>
+              About Me
+              <span v-if="currentPage === 'about_me.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            <a href="html/projects.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'projects.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-briefcase mr-3"></i>
+              Projects
+              <span v-if="currentPage === 'projects.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            <a href="html/skills.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'skills.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-code mr-3"></i>
+              Skills
+              <span v-if="currentPage === 'skills.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            <a href="html/services.html" 
+               @click="closeMenu"
+               :class="['block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-300 flex items-center',
+                        currentPage === 'services.html' ? 'text-blue-600 bg-blue-50 active-mobile-link' : '']">
+              <i class="fas fa-cogs mr-3"></i>
+              Services
+              <span v-if="currentPage === 'services.html'" class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
+            </a>
+            
+            <!-- Download button with proper spacing -->
+            <div class="pt-4 border-t border-gray-300">
+              <a href="cv/Dalin-CV.pdf" download 
+                 @click="downloadCV"
+                 class="block bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center space-x-2 transition-all duration-300 hover:shadow-lg">
+                <i :class="isDownloading ? 'fas fa-spinner fa-spin' : 'fas fa-download'"></i>
+                <span>{{ isDownloading ? 'Downloading...' : 'Download CV' }}</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Contact Information</h4>
-          <div class="contact-info">
-            <p><i class="fas fa-envelope"></i> marwindalin10@gmail.com</p>
-            <p><i class="fas fa-phone"></i> 0947 437 1682</p>
+    <!-- Hero Section -->
+    <main class="min-h-screen">
+      <section class="py-12 md:py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4">
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 p-6 md:p-8 lg:p-12">
+              <!-- Image -->
+              <div class="w-full lg:w-1/3 flex justify-center">
+                <div class="relative group">
+                  <img src="img/formal.jpeg" alt="Marwin Dalin" 
+                       class="w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full object-cover border-8 border-white shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
+                  <div class="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-blue-400 transition-all duration-500"></div>
+                </div>
+              </div>
+              
+              <!-- Text Content -->
+              <div class="w-full lg:w-2/3">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  Hi, I'm <span class="text-blue-600">Marwin Dalin</span>
+                </h1>
+                
+                <h2 class="text-lg md:text-xl text-gray-600 font-medium mb-6 pb-4 border-b">
+                  Aspiring IT Support / Junior Web Developer
+                </h2>
+                
+                <p class="text-gray-700 mb-8 text-base md:text-lg leading-relaxed">
+                  Skilled in both frontend and backend development, 
+                  I'm seeking opportunities to enhance my abilities and contribute to exciting projects. 
+                  I'm also interested in software and hardware maintenance, as well as setup tasks.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="html/about_me.html"
+                     class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    Learn More
+                  </a>
+                  <a href="html/projects.html"
+                     class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-medium text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    My Projects
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Info Section -->
+      <section class="py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+            What I Can Do
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Web Development Card -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 text-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+              <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-code text-2xl text-blue-600"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Web Development</h3>
+              <p class="text-gray-600 mb-6">
+                Building responsive websites and applications with modern technologies and clean code.
+              </p>
+              <a href="html/projects.html" class="text-blue-600 font-medium hover:text-blue-700 inline-flex items-center">
+                View Projects <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+            
+            <!-- IT Support Card -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 text-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+              <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-tools text-2xl text-blue-600"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">IT Support</h3>
+              <p class="text-gray-600 mb-6">
+                Troubleshooting, system maintenance, and technical assistance for hardware and software.
+              </p>
+              <a href="html/skills.html" class="text-blue-600 font-medium hover:text-blue-700 inline-flex items-center">
+                View Skills <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+            
+            <!-- Technical Solutions Card -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 text-center transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+              <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-cogs text-2xl text-blue-600"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Technical Solutions</h3>
+              <p class="text-gray-600 mb-6">
+                Virtual machines, database setup, and helpdesk systems for efficient technical operations.
+              </p>
+              <a href="html/services.html" class="text-blue-600 font-medium hover:text-blue-700 inline-flex items-center">
+                View Services <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer - Consistent with About Me Page -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <!-- Contact -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-gray-700">Contact Information</h3>
+            <div class="space-y-4">
+              <p class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-blue-400"></i>
+                <span>marwindalin10@gmail.com</span>
+              </p>
+              <p class="flex items-center space-x-3">
+                <i class="fas fa-phone text-blue-400"></i>
+                <span>0947 437 1682</span>
+              </p>
+            </div>
+          </div>
+          
+          <!-- Social -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-gray-700">Connect With Me</h3>
+            <div class="flex space-x-4">
+              <a href="https://github.com/mrwn10" target="_blank" 
+                 rel="noopener noreferrer"
+                 class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-all duration-300 hover:scale-110">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/marwin-dalin-29a924278/" target="_blank" 
+                 rel="noopener noreferrer"
+                 class="w-12 h-12 rounded-full bg-gray-800 hover:bg-blue-700 flex items-center justify-center transition-all duration-300 hover:scale-110">
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" 
+                 rel="noopener noreferrer"
+                 class="w-12 h-12 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-all duration-300 hover:scale-110">
+                <i class="fab fa-facebook text-xl"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 pb-2 border-b border-gray-700">Quick Links</h3>
+            <div class="space-y-3">
+              <a href="index.html" 
+                 :class="['block transition-colors', currentPage === 'index.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                Home
+              </a>
+              <a href="html/about_me.html" 
+                 :class="['block transition-colors', currentPage === 'about_me.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                About Me
+              </a>
+              <a href="html/projects.html" 
+                 :class="['block transition-colors', currentPage === 'projects.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                Projects
+              </a>
+              <a href="html/skills.html" 
+                 :class="['block transition-colors', currentPage === 'skills.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                Skills
+              </a>
+              <a href="html/services.html" 
+                 :class="['block transition-colors', currentPage === 'services.html' ? 'text-white font-medium' : 'text-gray-300 hover:text-white']">
+                Services
+              </a>
+            </div>
           </div>
         </div>
         
-        <div class="footer-section">
-          <h4>Connect With Me</h4>
-          <div class="social-links">
-            <a href="https://github.com/mrwn10" target="_blank" class="github">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/marwin-dalin-29a924278/" target="_blank" class="linkedin">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" class="facebook">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <div class="quick-links">
-            <a href="index.html">Home</a>
-            <a href="html/about_me.html">About Me</a>
-            <a href="html/projects.html">Projects</a>
-            <a href="html/skills.html">Skills</a>
-            <a href="html/services.html">Services</a>
-          </div>
+        <div class="text-center text-gray-400 pt-8 border-t border-gray-800">
+          <p>&copy; 2025 Marwin Dalin. All rights reserved.</p>
         </div>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Marwin Dalin. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script src="js/homepage.js"></script>
 </body>
