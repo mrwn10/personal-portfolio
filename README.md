@@ -64,34 +64,6 @@ This portfolio represents my evolution as a web developer. I started with tradit
 
 ---
 
-## 📁 Project Structure
-
-portfolio/
-├── index.html # Homepage
-├── html/ # Other pages
-│ ├── about_me.html
-│ ├── projects.html
-│ ├── skills.html
-│ └── services.html
-├── css/ # Custom CSS (Tailwind extensions)
-│ ├── homepage.css
-│ ├── about_me.css
-│ ├── projects.css
-│ ├── skills.css
-│ └── services.css
-├── js/ # Vue applications
-│ ├── homepage.js
-│ ├── about_me.js
-│ ├── projects.js
-│ ├── skills.js
-│ └── services.js
-├── img/ # Images
-├── cv/ # Resume
-└── README.md # This file
-
-
----
-
 ## 🎓 Key Learnings & Insights
 
 ### 1. The Power of Frameworks
