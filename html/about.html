@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marwin Dalin | About</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/github.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/loading.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-spinner">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        <div class="loading-text">
+            Loading<span class="loading-dots"><span></span><span></span><span></span></span>
+        </div>
+        <div class="loading-subtext">Please wait a moment</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 w-full z-50 transition-all duration-300" style="background: rgba(248, 246, 240, 0.92); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(45, 106, 79, 0.08);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <span class="text-sm sm:text-base font-semibold tracking-[2px] uppercase" style="color: #2D2D2D;">PORTFOLIO</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">Home</a>
+                    <a href="about.html" class="nav-link active text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">About</a>
+                    <a href="projects.html" class="nav-link text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">Projects</a>
+                    <a href="services.html" class="nav-link text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">Services</a>
+                    <a href="contact.html" class="nav-link text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg transition-colors duration-300 focus:outline-none" style="color: #2D2D2D;">
+                    <span class="sr-only">Open main menu</span>
+                    <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden transition-all duration-300 ease-in-out" style="background: rgba(248, 246, 240, 0.98); backdrop-filter: blur(10px);">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="../index.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300" style="color: #2D2D2D;">Home</a>
+                <a href="about.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 active" style="color: #2D2D2D;">About</a>
+                <a href="projects.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300" style="color: #2D2D2D;">Projects</a>
+                <a href="services.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300" style="color: #2D2D2D;">Services</a>
+                <a href="contact.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300" style="color: #2D2D2D;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="min-h-screen py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #F8F6F0 0%, #EDF2EC 100%);">
+        <!-- Background Decorations -->
+        <div class="absolute top-[-50%] right-[-20%] w-[600px] h-[600px] rounded-full opacity-50" style="background: radial-gradient(circle, rgba(82, 183, 136, 0.08) 0%, transparent 70%);"></div>
+        <div class="absolute bottom-[-30%] left-[-10%] w-[400px] h-[400px] rounded-full opacity-50" style="background: radial-gradient(circle, rgba(45, 106, 79, 0.06) 0%, transparent 70%);"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <p class="text-base sm:text-lg font-light mb-1" style="color: #5A5A5A;">Get to know me</p>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style="color: #1B4332; letter-spacing: -1px;">About Me</h1>
+                <div class="w-20 h-1 rounded-full mx-auto mt-4" style="background: #2D6A4F;"></div>
+            </div>
+
+            <!-- Content - Full Width -->
+            <div class="space-y-6">
+                <!-- Who I Am Card with Image & Contact -->
+                <div class="p-6 rounded-xl border" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <!-- Profile Image - 1x1 -->
+                        <div class="flex-shrink-0 flex justify-center md:justify-start">
+                            <div class="relative w-32 h-32 sm:w-40 sm:h-40 rounded-xl overflow-hidden border-4 border-white shadow-lg" style="box-shadow: 0 8px 30px rgba(45, 106, 79, 0.15);">
+                                <img 
+                                    src="../img/Formal.jpg" 
+                                    alt="Marwin Dalin" 
+                                    class="w-full h-full object-cover object-center"
+                                >
+                            </div>
+                        </div>
+                        
+                        <!-- Text & Contact Info -->
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fas fa-user text-xl" style="color: #2D6A4F;"></i>
+                                <h2 class="text-xl font-bold" style="color: #1B4332;">Who I Am</h2>
+                            </div>
+                            <p class="text-sm leading-relaxed mb-3" style="color: #5A5A5A;">
+                                I'm Marwin Dalin, an IT graduate from Laguna State Polytechnic University - 
+                                Sta. Cruz Campus with a passion for both IT Support and Software Development. 
+                                I bring hands-on experience in full-stack development, system administration, 
+                                and technical support—backed by a strong foundation in modern software 
+                                technologies and a relentless drive to learn and adapt.
+                            </p>
+                            
+                            <!-- Contact Info - 3 columns -->
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
+                                <div class="flex items-center gap-2 p-2 rounded-lg" style="background: rgba(45, 106, 79, 0.05);">
+                                    <i class="fas fa-map-marker-alt text-xs" style="color: #2D6A4F;"></i>
+                                    <div>
+                                        <p class="text-[10px] font-medium uppercase tracking-wider" style="color: #5A5A5A;">Location</p>
+                                        <p class="text-xs font-medium" style="color: #2D2D2D;">Pila, Laguna</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 rounded-lg" style="background: rgba(45, 106, 79, 0.05);">
+                                    <i class="fas fa-envelope text-xs" style="color: #2D6A4F;"></i>
+                                    <div>
+                                        <p class="text-[10px] font-medium uppercase tracking-wider" style="color: #5A5A5A;">Email</p>
+                                        <p class="text-xs font-medium" style="color: #2D2D2D;">marwindalin10@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 rounded-lg" style="background: rgba(45, 106, 79, 0.05);">
+                                    <i class="fas fa-phone text-xs" style="color: #2D6A4F;"></i>
+                                    <div>
+                                        <p class="text-[10px] font-medium uppercase tracking-wider" style="color: #5A5A5A;">Phone</p>
+                                        <p class="text-xs font-medium" style="color: #2D2D2D;">+63 947 437 1682</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Links & CV Download -->
+                            <div class="flex flex-wrap items-center gap-3">
+                                <span class="text-xs font-medium" style="color: #5A5A5A;">Connect:</span>
+                                <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:translate-y-[-2px]" style="background: rgba(45, 106, 79, 0.08); color: #2D6A4F; border: 1px solid rgba(45, 106, 79, 0.1);">
+                                    <i class="fab fa-facebook-f text-xs"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/marwin-dalin-29a924278" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:translate-y-[-2px]" style="background: rgba(45, 106, 79, 0.08); color: #2D6A4F; border: 1px solid rgba(45, 106, 79, 0.1);">
+                                    <i class="fab fa-linkedin-in text-xs"></i>
+                                </a>
+                                <a href="https://github.com/mrwn10" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:translate-y-[-2px]" style="background: rgba(45, 106, 79, 0.08); color: #2D6A4F; border: 1px solid rgba(45, 106, 79, 0.1);">
+                                    <i class="fab fa-github text-xs"></i>
+                                </a>
+                                <a href="mailto:marwindalin10@gmail.com" class="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:translate-y-[-2px]" style="background: rgba(45, 106, 79, 0.08); color: #2D6A4F; border: 1px solid rgba(45, 106, 79, 0.1);">
+                                    <i class="fas fa-envelope text-xs"></i>
+                                </a>
+                                
+                                <!-- CV Download Button -->
+                                <a href="../cv/DALIN-CV.pdf" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-white transition-all duration-300 hover:translate-y-[-2px] ml-1" style="background: #2D6A4F; box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);">
+                                    <i class="fas fa-file-pdf text-xs"></i>
+                                    Download CV
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Philosophy Card -->
+                <div class="p-6 rounded-xl border" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fas fa-quote-left text-xl" style="color: #2D6A4F;"></i>
+                        <h2 class="text-xl font-bold" style="color: #1B4332;">My Philosophy</h2>
+                    </div>
+                    <blockquote class="text-lg italic font-medium mb-2" style="color: #2D6A4F;">
+                        "A smooth sea never made a skilled sailor."
+                    </blockquote>
+                    <p class="text-sm leading-relaxed" style="color: #5A5A5A;">
+                        This philosophy drives everything I do. I believe that challenges and 
+                        uncertainty are opportunities for growth—not obstacles to avoid. Whether 
+                        it's troubleshooting complex IT issues or diving into unfamiliar 
+                        technologies, I embrace the discomfort of learning as a path to mastery.
+                    </p>
+                </div>
+
+                <!-- What I Do Card -->
+                <div class="p-6 rounded-xl border" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-code text-xl" style="color: #2D6A4F;"></i>
+                        <h2 class="text-xl font-bold" style="color: #1B4332;">What I Do</h2>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-lg border" style="background: rgba(45, 106, 79, 0.05); border-color: rgba(45, 106, 79, 0.1);">
+                            <h3 class="font-semibold text-sm mb-2" style="color: #2D6A4F;">
+                                <i class="fas fa-desktop mr-2"></i>IT Support
+                            </h3>
+                            <ul class="space-y-1 text-xs" style="color: #5A5A5A;">
+                                <li>• Hardware/software troubleshooting</li>
+                                <li>• Windows & Linux administration</li>
+                                <li>• PC assembly & maintenance</li>
+                                <li>• Virtualization (VirtualBox)</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 rounded-lg border" style="background: rgba(45, 106, 79, 0.05); border-color: rgba(45, 106, 79, 0.1);">
+                            <h3 class="font-semibold text-sm mb-2" style="color: #2D6A4F;">
+                                <i class="fas fa-laptop-code mr-2"></i>Software Development
+                            </h3>
+                            <ul class="space-y-1 text-xs" style="color: #5A5A5A;">
+                                <li>• Full-stack web applications</li>
+                                <li>• Python (Flask) & MySQL</li>
+                                <li>• Vue.js, HTML, CSS, JavaScript</li>
+                                <li>• Git & GitHub version control</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Card -->
+                <div class="p-6 rounded-xl border" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-briefcase text-xl" style="color: #2D6A4F;"></i>
+                        <h2 class="text-xl font-bold" style="color: #1B4332;">Experience</h2>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="border-l-2 pl-4" style="border-color: #2D6A4F;">
+                            <h3 class="font-semibold text-sm" style="color: #2D6A4F;">GRIDS Intern</h3>
+                            <p class="text-xs" style="color: #5A5A5A;">Geographic Innovations for Development Solutions, Inc. | Feb 2026 - Jun 2026</p>
+                            <ul class="mt-2 space-y-1 text-xs" style="color: #5A5A5A;">
+                                <li>• Developed inventory management system using Vue.js</li>
+                                <li>• Used Git/GitHub for version control (branching, PRs, merge conflicts)</li>
+                                <li>• Participated in team discussions and feature planning</li>
+                                <li>• Contributed to system data encoding and administrative tasks</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-2 pl-4" style="border-color: #D4A373;">
+                            <h3 class="font-semibold text-sm" style="color: #2D6A4F;">McDonald's Crew</h3>
+                            <p class="text-xs" style="color: #5A5A5A;">Golden Arches Development Corp. | Jul 2023 - Jan 2025</p>
+                            <ul class="mt-2 space-y-1 text-xs" style="color: #5A5A5A;">
+                                <li>• Developed customer service and teamwork skills</li>
+                                <li>• Managed high-pressure situations with efficiency</li>
+                                <li>• Demonstrated reliability and time management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Card -->
+                <div class="p-6 rounded-xl border" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-graduation-cap text-xl" style="color: #2D6A4F;"></i>
+                        <h2 class="text-xl font-bold" style="color: #1B4332;">Education</h2>
+                    </div>
+                    <div class="p-4 rounded-lg border" style="background: rgba(45, 106, 79, 0.05); border-color: rgba(45, 106, 79, 0.1);">
+                        <p class="font-semibold text-sm" style="color: #2D6A4F;">Bachelor of Science in Information Technology</p>
+                        <p class="text-xs" style="color: #5A5A5A;">Laguna State Polytechnic University - Sta. Cruz Campus | 2022 - 2026</p>
+                    </div>
+                </div>
+
+                <!-- Achievements Card -->
+                <div class="p-6 rounded-xl border" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-trophy text-xl" style="color: #2D6A4F;"></i>
+                        <h2 class="text-xl font-bold" style="color: #1B4332;">Key Achievements</h2>
+                    </div>
+                    <ul class="space-y-2 text-xs" style="color: #5A5A5A;">
+                        <li class="flex items-start gap-2">
+                            <span style="color: #2D6A4F;">✅</span>
+                            <span>Successfully developed inventory management system using Vue.js during internship</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: #2D6A4F;">✅</span>
+                            <span>Proficiently used Git/GitHub for collaborative software development</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: #2D6A4F;">✅</span>
+                            <span>Deployed web applications with Python (Flask) and MySQL</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: #2D6A4F;">✅</span>
+                            <span>Experienced in both Windows and Linux system administration</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: #2D6A4F;">✅</span>
+                            <span>Demonstrated adaptability by learning new technologies on the job</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skills Card -->
+                <div class="p-6 rounded-xl border" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-tools text-xl" style="color: #2D6A4F;"></i>
+                        <h2 class="text-xl font-bold" style="color: #1B4332;">Skills & Technologies</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">Python (Flask)</span>
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">Vue.js</span>
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">MySQL</span>
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">Tailwind CSS</span>
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">Git/GitHub</span>
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">Linux</span>
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">VirtualBox</span>
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">PC Troubleshooting</span>
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">JavaScript</span>
+                        <span class="text-xs font-medium px-3 py-1.5 rounded-full border" style="color: #40916C; background: rgba(45, 106, 79, 0.08); border-color: rgba(45, 106, 79, 0.1);">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border" style="background: rgba(45, 106, 79, 0.08); color: #2D6A4F; border-color: rgba(45, 106, 79, 0.1);">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-sm font-semibold">Open to Work</span>
+                    </div>
+                    <a href="projects.html" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold text-white transition-all duration-300 hover:translate-y-[-2px]" style="background: #2D6A4F; box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3); font-size: 0.85rem;">
+                        <i class="fas fa-folder-open mr-2"></i>View Projects
+                    </a>
+                    <a href="contact.html" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold transition-all duration-300 hover:translate-y-[-2px]" style="color: #2D6A4F; border: 2px solid #2D6A4F; background: transparent; font-size: 0.85rem;">
+                        <i class="fas fa-envelope mr-2"></i>Contact Me
+                    </a>
+                    <a href="../cv/DALIN-CV.pdf" target="_blank" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold transition-all duration-300 hover:translate-y-[-2px]" style="color: #D4A373; border: 2px solid #D4A373; background: transparent; font-size: 0.85rem;">
+                        <i class="fas fa-file-pdf mr-2"></i>Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/loading.js"></script>
+    <script src="../js/about.js"></script>
+</body>
+</html>

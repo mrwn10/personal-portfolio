@@ -1,0 +1,134 @@
+/* ===== LOADING SCREEN ===== */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #F8F6F0 0%, #EDF2EC 100%);
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#loading-screen.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.loading-spinner .ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+}
+
+.loading-spinner .ring:nth-child(1) {
+    border-top-color: #2D6A4F;
+    animation: spin 1s linear infinite;
+}
+
+.loading-spinner .ring:nth-child(2) {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    border-top-color: #52B788;
+    animation: spin 1.3s linear infinite reverse;
+}
+
+.loading-spinner .ring:nth-child(3) {
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    border-top-color: #D4A373;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Loading Text */
+.loading-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1B4332;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.loading-subtext {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #5A5A5A;
+    letter-spacing: 1px;
+}
+
+.loading-dots {
+    display: inline-flex;
+    gap: 5px;
+    margin-left: 2px;
+}
+
+.loading-dots span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2D6A4F;
+    animation: dot-bounce 1.4s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+    background: #52B788;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+    background: #D4A373;
+}
+
+/* Animations */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes dot-bounce {
+    0%, 80%, 100% { transform: scale(0.4); opacity: 0.3; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .loading-spinner {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+    
+    .loading-text {
+        font-size: 1rem;
+    }
+    
+    .loading-subtext {
+        font-size: 0.75rem;
+    }
+}

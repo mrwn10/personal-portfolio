@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marwin Dalin | Contact</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/github.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/loading.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-spinner">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        <div class="loading-text">
+            Loading<span class="loading-dots"><span></span><span></span><span></span></span>
+        </div>
+        <div class="loading-subtext">Please wait a moment</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 w-full z-50 transition-all duration-300" style="background: rgba(248, 246, 240, 0.92); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(45, 106, 79, 0.08);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <span class="text-sm sm:text-base font-semibold tracking-[2px] uppercase" style="color: #2D2D2D;">PORTFOLIO</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">Home</a>
+                    <a href="about.html" class="nav-link text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">About</a>
+                    <a href="projects.html" class="nav-link text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">Projects</a>
+                    <a href="services.html" class="nav-link text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">Services</a>
+                    <a href="contact.html" class="nav-link active text-sm font-medium transition-colors duration-300 relative" style="color: #2D2D2D;">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg transition-colors duration-300 focus:outline-none" style="color: #2D2D2D;">
+                    <span class="sr-only">Open main menu</span>
+                    <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden transition-all duration-300 ease-in-out" style="background: rgba(248, 246, 240, 0.98); backdrop-filter: blur(10px);">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="../index.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300" style="color: #2D2D2D;">Home</a>
+                <a href="about.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300" style="color: #2D2D2D;">About</a>
+                <a href="projects.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300" style="color: #2D2D2D;">Projects</a>
+                <a href="services.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300" style="color: #2D2D2D;">Services</a>
+                <a href="contact.html" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 active" style="color: #2D2D2D;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-screen py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #F8F6F0 0%, #EDF2EC 100%);">
+        <!-- Background Decorations -->
+        <div class="absolute top-[-50%] right-[-20%] w-[600px] h-[600px] rounded-full opacity-50" style="background: radial-gradient(circle, rgba(82, 183, 136, 0.08) 0%, transparent 70%);"></div>
+        <div class="absolute bottom-[-30%] left-[-10%] w-[400px] h-[400px] rounded-full opacity-50" style="background: radial-gradient(circle, rgba(45, 106, 79, 0.06) 0%, transparent 70%);"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <p class="text-base sm:text-lg font-light mb-1" style="color: #5A5A5A;">Get in touch</p>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style="color: #1B4332; letter-spacing: -1px;">Contact Me</h1>
+                <div class="w-20 h-1 rounded-full mx-auto mt-4" style="background: #2D6A4F;"></div>
+                <p class="text-sm sm:text-base mt-4 max-w-2xl mx-auto" style="color: #5A5A5A;">
+                    Let's connect! Feel free to reach out through any of the platforms below.
+                </p>
+            </div>
+
+            <!-- Contact Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Contact 1: Mobile Number -->
+                <a href="tel:+639474371682" class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] contact-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05); text-decoration: none;">
+                    <div class="p-6 flex flex-col flex-1 items-center text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 contact-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fas fa-phone-alt text-2xl" style="color: #2D6A4F;"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">Mobile Number</h3>
+                        <p class="text-sm leading-relaxed mb-1" style="color: #5A5A5A;">+63 947 437 1682</p>
+                        <p class="text-xs" style="color: #8A8A8A;">Call or SMS</p>
+                        <div class="mt-4 flex items-center gap-2 text-sm font-medium" style="color: #2D6A4F;">
+                            <span>Contact Now</span>
+                            <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Contact 2: Gmail -->
+                <a href="mailto:marwindalin10@gmail.com" class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] contact-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05); text-decoration: none;">
+                    <div class="p-6 flex flex-col flex-1 items-center text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 contact-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fas fa-envelope text-2xl" style="color: #2D6A4F;"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">Email</h3>
+                        <p class="text-sm leading-relaxed mb-1" style="color: #5A5A5A;">marwindalin10@gmail.com</p>
+                        <p class="text-xs" style="color: #8A8A8A;">Send an email</p>
+                        <div class="mt-4 flex items-center gap-2 text-sm font-medium" style="color: #2D6A4F;">
+                            <span>Send Email</span>
+                            <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Contact 3: LinkedIn -->
+                <a href="https://www.linkedin.com/in/marwin-dalin-29a924278" target="_blank" class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] contact-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05); text-decoration: none;">
+                    <div class="p-6 flex flex-col flex-1 items-center text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 contact-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fab fa-linkedin-in text-2xl" style="color: #2D6A4F;"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">LinkedIn</h3>
+                        <p class="text-sm leading-relaxed mb-1" style="color: #5A5A5A;">Marwin Dalin</p>
+                        <p class="text-xs" style="color: #8A8A8A;">Professional network</p>
+                        <div class="mt-4 flex items-center gap-2 text-sm font-medium" style="color: #2D6A4F;">
+                            <span>Connect</span>
+                            <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Contact 4: GitHub -->
+                <a href="https://github.com/mrwn10" target="_blank" class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] contact-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05); text-decoration: none;">
+                    <div class="p-6 flex flex-col flex-1 items-center text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 contact-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fab fa-github text-2xl" style="color: #2D6A4F;"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">GitHub</h3>
+                        <p class="text-sm leading-relaxed mb-1" style="color: #5A5A5A;">@mrwn10</p>
+                        <p class="text-xs" style="color: #8A8A8A;">Code repository</p>
+                        <div class="mt-4 flex items-center gap-2 text-sm font-medium" style="color: #2D6A4F;">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Contact 5: Facebook -->
+                <a href="https://www.facebook.com/marwin.dalin.94" target="_blank" class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] contact-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05); text-decoration: none;">
+                    <div class="p-6 flex flex-col flex-1 items-center text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 contact-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fab fa-facebook-f text-2xl" style="color: #2D6A4F;"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">Facebook</h3>
+                        <p class="text-sm leading-relaxed mb-1" style="color: #5A5A5A;">Marwin Dalin</p>
+                        <p class="text-xs" style="color: #8A8A8A;">Social media</p>
+                        <div class="mt-4 flex items-center gap-2 text-sm font-medium" style="color: #2D6A4F;">
+                            <span>Message Me</span>
+                            <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Contact 6: Bossjob -->
+                <a href="https://bossjob.com" target="_blank" class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] contact-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05); text-decoration: none;">
+                    <div class="p-6 flex flex-col flex-1 items-center text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 contact-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fas fa-briefcase text-2xl" style="color: #2D6A4F;"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">Bossjob</h3>
+                        <p class="text-sm leading-relaxed mb-1" style="color: #5A5A5A;">Marwin Dalin</p>
+                        <p class="text-xs" style="color: #8A8A8A;">Job platform</p>
+                        <div class="mt-4 flex items-center gap-2 text-sm font-medium" style="color: #2D6A4F;">
+                            <span>View Profile</span>
+                            <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Additional Info & CTA -->
+            <div class="flex flex-wrap items-center justify-center gap-4 mt-12 pt-6 border-t" style="border-color: rgba(45, 106, 79, 0.1);">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border" style="background: rgba(45, 106, 79, 0.08); color: #2D6A4F; border-color: rgba(45, 106, 79, 0.1);">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-sm font-semibold">Open to Work</span>
+                </div>
+                <a href="projects.html" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold text-white transition-all duration-300 hover:translate-y-[-2px]" style="background: #2D6A4F; box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3); font-size: 0.85rem;">
+                    <i class="fas fa-code mr-2"></i>View Projects
+                </a>
+                <a href="services.html" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold transition-all duration-300 hover:translate-y-[-2px]" style="color: #2D6A4F; border: 2px solid #2D6A4F; background: transparent; font-size: 0.85rem;">
+                    <i class="fas fa-cogs mr-2"></i>View Services
+                </a>
+                <a href="https://github.com/mrwn10" target="_blank" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full font-semibold transition-all duration-300 hover:translate-y-[-2px]" style="color: #D4A373; border: 2px solid #D4A373; background: transparent; font-size: 0.85rem;">
+                    <i class="fab fa-github mr-2"></i>GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load loading.js first -->
+    <script src="../js/loading.js"></script>
+    <!-- Then load contact.js -->
+    <script src="../js/contact.js"></script>
+</body>
+</html>
