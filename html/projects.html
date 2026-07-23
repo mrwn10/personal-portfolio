@@ -35,6 +35,18 @@
         <div class="loading-subtext">Please wait a moment</div>
     </div>
 
+    <!-- ===== LIGHTBOX MODAL ===== -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <div class="lightbox-nav">
+            <span class="lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+            <span class="lightbox-next" onclick="changeImage(1)">&#10095;</span>
+        </div>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar fixed top-0 w-full z-50 transition-all duration-300" style="background: rgba(248, 246, 240, 0.92); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(45, 106, 79, 0.08);">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,6 +97,9 @@
                 <p class="text-base sm:text-lg font-light mb-1" style="color: #5A5A5A;">My work</p>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style="color: #1B4332; letter-spacing: -1px;">Projects</h1>
                 <div class="w-20 h-1 rounded-full mx-auto mt-4" style="background: #2D6A4F;"></div>
+                <p class="text-sm sm:text-base mt-4 max-w-2xl mx-auto" style="color: #5A5A5A;">
+                    A showcase of my software development projects, from web applications to blockchain solutions.
+                </p>
             </div>
 
             <!-- Projects Grid -->
@@ -93,14 +108,14 @@
                 <!-- Project 1: Portfolio Website -->
                 <div class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] project-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
                     <div class="p-6 flex flex-col flex-1">
-                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
-                            <i class="fas fa-globe text-xl" style="color: #2D6A4F;"></i>
+                        <div class="w-14 h-14 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fas fa-globe text-2xl" style="color: #2D6A4F;"></i>
                         </div>
                         <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">Portfolio Website</h3>
                         <p class="text-sm leading-relaxed mb-4 flex-1" style="color: #5A5A5A;">
                             A responsive personal portfolio website showcasing skills, projects, and professional experience with a modern design.
                         </p>
-                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[30px]">
+                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[36px]">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
                             <span class="tech-tag">JavaScript</span>
@@ -120,14 +135,14 @@
                 <!-- Project 2: Student Portal - Blockchain Verification (Thesis) -->
                 <div class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] project-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
                     <div class="p-6 flex flex-col flex-1">
-                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
-                            <i class="fas fa-link text-xl" style="color: #2D6A4F;"></i>
+                        <div class="w-14 h-14 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fas fa-link text-2xl" style="color: #2D6A4F;"></i>
                         </div>
                         <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">Student Portal - Blockchain Verification</h3>
                         <p class="text-sm leading-relaxed mb-4 flex-1" style="color: #5A5A5A;">
                             A thesis project implementing blockchain technology for secure student record verification and authentication.
                         </p>
-                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[30px]">
+                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[36px]">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
                             <span class="tech-tag">JavaScript</span>
@@ -149,14 +164,14 @@
                 <!-- Project 3: Web E-Commerce -->
                 <div class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] project-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
                     <div class="p-6 flex flex-col flex-1">
-                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
-                            <i class="fas fa-shopping-bag text-xl" style="color: #2D6A4F;"></i>
+                        <div class="w-14 h-14 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fas fa-shopping-bag text-2xl" style="color: #2D6A4F;"></i>
                         </div>
                         <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">Web E-Commerce Platform</h3>
                         <p class="text-sm leading-relaxed mb-4 flex-1" style="color: #5A5A5A;">
                             A full-featured e-commerce web application with product management, shopping cart, and secure checkout system.
                         </p>
-                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[30px]">
+                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[36px]">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
                             <span class="tech-tag">JavaScript</span>
@@ -177,14 +192,14 @@
                 <!-- Project 4: Mobile E-Commerce (Cross-Platform) -->
                 <div class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] project-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
                     <div class="p-6 flex flex-col flex-1">
-                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
-                            <i class="fas fa-mobile-alt text-xl" style="color: #2D6A4F;"></i>
+                        <div class="w-14 h-14 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fas fa-mobile-alt text-2xl" style="color: #2D6A4F;"></i>
                         </div>
                         <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">Mobile E-Commerce App</h3>
                         <p class="text-sm leading-relaxed mb-4 flex-1" style="color: #5A5A5A;">
                             A cross-platform mobile e-commerce application built with Flutter, connected to a Flask backend API.
                         </p>
-                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[30px]">
+                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[36px]">
                             <span class="tech-tag">Flutter</span>
                             <span class="tech-tag">Dart</span>
                             <span class="tech-tag">Python</span>
@@ -202,17 +217,17 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Windows 10 Clone (Updated with Tailwind) -->
+                <!-- Project 5: Windows 10 Clone -->
                 <div class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] project-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
                     <div class="p-6 flex flex-col flex-1">
-                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
-                            <i class="fab fa-windows text-xl" style="color: #2D6A4F;"></i>
+                        <div class="w-14 h-14 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
+                            <i class="fab fa-windows text-2xl" style="color: #2D6A4F;"></i>
                         </div>
                         <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">Windows 10 Clone</h3>
                         <p class="text-sm leading-relaxed mb-4 flex-1" style="color: #5A5A5A;">
                             A web-based Windows 10 desktop simulation built with Vue CLI3 and Tailwind CSS, replicating the look and feel of Windows 10.
                         </p>
-                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[30px]">
+                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[36px]">
                             <span class="tech-tag">Vue CLI3</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Tailwind</span>
@@ -230,35 +245,132 @@
                     </div>
                 </div>
 
-                <!-- Project 6: LPT Reviewer (Updated with Tailwind) -->
-                <div class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] project-card flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
+            </div>
+
+            <!-- ===== TINICE REVIEWER PLATFORM - FEATURED CARD ===== -->
+            <div class="mt-12">
+                <div class="group rounded-xl border overflow-hidden transition-all duration-300 hover:translate-y-[-8px] featured-project flex flex-col" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(5px); border-color: rgba(45, 106, 79, 0.1); box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);">
+                    
                     <div class="p-6 flex flex-col flex-1">
-                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 project-icon" style="background: rgba(45, 106, 79, 0.08);">
-                            <i class="fas fa-graduation-cap text-xl" style="color: #2D6A4F;"></i>
+                        <!-- Top Section: Icon + Title + Status -->
+                        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 project-icon" style="background: rgba(45, 106, 79, 0.08);">
+                                    <i class="fas fa-graduation-cap text-2xl" style="color: #2D6A4F;"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold" style="color: #1B4332;">Tinice Reviewer Platform</h3>
+                                    <p class="text-sm" style="color: #5A5A5A;">Full-stack LPT reviewer platform for Science Major examinees</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-3">
+                                <span class="text-xs font-medium px-3 py-1.5 rounded-full" style="background: #D4A373; color: white;">
+                                    <i class="fas fa-rocket mr-1.5"></i>Deployed
+                                </span>
+                                <a href="https://www.tinicereviewer.com/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg" style="background: #2D6A4F;">
+                                    <i class="fas fa-external-link-alt"></i> Visit Site
+                                </a>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold mb-2" style="color: #1B4332;">LPT Reviewer Platform</h3>
-                        <p class="text-sm leading-relaxed mb-4 flex-1" style="color: #5A5A5A;">
-                            A comprehensive Licensure Examination for Teachers (LPT) reviewer platform with practice tests and study materials, built with Vue Vite and Tailwind CSS.
+
+                        <!-- Description -->
+                        <p class="text-sm leading-relaxed mb-4 max-w-3xl" style="color: #4A4A4A;">
+                            A comprehensive reviewer platform with secure authentication, REST API architecture, randomized examinations, 
+                            progress tracking, and responsive interface. Deployed on Vultr VPS with Ubuntu Server, Nginx, Gunicorn, and Cloudflare SSL.
                         </p>
-                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[30px]">
-                            <span class="tech-tag">Vue Vite</span>
-                            <span class="tech-tag">Tailwind</span>
+
+                        <!-- Tech Stack -->
+                        <div class="flex flex-wrap gap-1.5 mb-4 min-h-[36px]">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Django REST</span>
                             <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">Nginx</span>
+                            <span class="tech-tag">Gunicorn</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Cloudflare</span>
                         </div>
-                        <div class="flex items-center justify-between mt-auto pt-3 border-t" style="border-color: rgba(45, 106, 79, 0.08);">
-                            <a href="https://github.com/mrwn10/lpt-reviewer" target="_blank" class="project-link">
-                                <i class="fab fa-github mr-1.5"></i>Source Code
-                            </a>
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-full status-badge" style="background: #D4A373; color: white;">
-                                <i class="fas fa-code-branch mr-1 text-[10px]"></i>In Development
-                            </span>
+
+                        <!-- Photo Documentation Grid - 3x2 Layout for 6 Images -->
+                        <div class="photo-grid">
+                            <div class="photo-placeholder" onclick="openLightbox(0)">
+                                <img src="../img/1.png" alt="Tinice Reviewer Homepage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:rgba(45,106,79,0.04); flex-direction:column; gap:4px;">
+                                    <i class="fas fa-image" style="font-size:2rem; color:rgba(45,106,79,0.15);"></i>
+                                    <span style="font-size:0.5rem; color:rgba(45,106,79,0.3);">Homepage</span>
+                                </div>
+                                <div class="photo-overlay">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to zoom</span>
+                                </div>
+                            </div>
+                            <div class="photo-placeholder" onclick="openLightbox(1)">
+                                <img src="../img/2.png" alt="Taking an Exam" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:rgba(45,106,79,0.04); flex-direction:column; gap:4px;">
+                                    <i class="fas fa-image" style="font-size:2rem; color:rgba(45,106,79,0.15);"></i>
+                                    <span style="font-size:0.5rem; color:rgba(45,106,79,0.3);">Taking Exam</span>
+                                </div>
+                                <div class="photo-overlay">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to zoom</span>
+                                </div>
+                            </div>
+                            <div class="photo-placeholder" onclick="openLightbox(2)">
+                                <img src="../img/3.png" alt="Cloudflare Dashboard" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:rgba(45,106,79,0.04); flex-direction:column; gap:4px;">
+                                    <i class="fas fa-image" style="font-size:2rem; color:rgba(45,106,79,0.15);"></i>
+                                    <span style="font-size:0.5rem; color:rgba(45,106,79,0.3);">Cloudflare</span>
+                                </div>
+                                <div class="photo-overlay">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to zoom</span>
+                                </div>
+                            </div>
+                            <div class="photo-placeholder" onclick="openLightbox(3)">
+                                <img src="../img/4.png" alt="Vultr Server" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:rgba(45,106,79,0.04); flex-direction:column; gap:4px;">
+                                    <i class="fas fa-image" style="font-size:2rem; color:rgba(45,106,79,0.15);"></i>
+                                    <span style="font-size:0.5rem; color:rgba(45,106,79,0.3);">Vultr Server</span>
+                                </div>
+                                <div class="photo-overlay">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to zoom</span>
+                                </div>
+                            </div>
+                            <div class="photo-placeholder" onclick="openLightbox(4)">
+                                <img src="../img/5.png" alt="Virtual Machine Specs" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:rgba(45,106,79,0.04); flex-direction:column; gap:4px;">
+                                    <i class="fas fa-image" style="font-size:2rem; color:rgba(45,106,79,0.15);"></i>
+                                    <span style="font-size:0.5rem; color:rgba(45,106,79,0.3);">VM Specs</span>
+                                </div>
+                                <div class="photo-overlay">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to zoom</span>
+                                </div>
+                            </div>
+                            <div class="photo-placeholder" onclick="openLightbox(5)">
+                                <img src="../img/6.png" alt="Ubuntu UI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="placeholder-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:rgba(45,106,79,0.04); flex-direction:column; gap:4px;">
+                                    <i class="fas fa-image" style="font-size:2rem; color:rgba(45,106,79,0.15);"></i>
+                                    <span style="font-size:0.5rem; color:rgba(45,106,79,0.3);">Ubuntu UI</span>
+                                </div>
+                                <div class="photo-overlay">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to zoom</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="flex items-center justify-between mt-auto pt-3 border-t flex-wrap gap-2" style="border-color: rgba(45, 106, 79, 0.08);">
+                            <div class="flex flex-wrap items-center gap-4 text-xs" style="color: #6A6A6A;">
+                                <span><i class="fas fa-server mr-1.5" style="color: #2D6A4F;"></i>Vultr VM (Ubuntu)</span>
+                                <span><i class="fas fa-lock mr-1.5" style="color: #2D6A4F;"></i>SSL Certified</span>
+                                <span><i class="fas fa-database mr-1.5" style="color: #2D6A4F;"></i>MySQL</span>
+                                <span><i class="fas fa-cloud mr-1.5" style="color: #2D6A4F;"></i>Cloudflare</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <!-- CTA Section -->
